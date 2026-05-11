@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Globalix Employee Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Globalix Employee Login</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,21 +19,21 @@
 
     body{
       font-family:'Inter',sans-serif;
-      background:#050505;
-      color:white;
+      background:#040404;
       min-height:100vh;
-      overflow-x:hidden;
+      overflow:hidden;
+      color:white;
       display:flex;
       justify-content:center;
       align-items:center;
-      padding:40px 20px;
+      position:relative;
     }
 
-    .bg{
-      position:fixed;
+    .background{
+      position:absolute;
       inset:0;
-      z-index:-1;
       overflow:hidden;
+      z-index:-1;
     }
 
     .glow{
@@ -44,118 +45,242 @@
     .g1{
       width:500px;
       height:500px;
-      background:rgba(255,204,0,0.12);
-      top:-120px;
+      background:rgba(255,204,0,0.15);
+      top:-180px;
       left:-120px;
     }
 
     .g2{
       width:500px;
       height:500px;
-      background:rgba(0,119,255,0.14);
-      bottom:-120px;
+      background:rgba(0,119,255,0.16);
+      bottom:-180px;
       right:-120px;
     }
 
-    .wrapper{
+    .login-container{
       width:100%;
-      max-width:1300px;
+      max-width:1200px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(20px);
+      border-radius:40px;
+      overflow:hidden;
+      box-shadow:0 30px 100px rgba(0,0,0,0.5);
+      margin:20px;
+      animation:fadeUp 1s ease;
     }
 
-    .top{
-      text-align:center;
-      margin-bottom:60px;
+    /* LEFT */
+
+    .left{
+      padding:70px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      background:linear-gradient(to bottom right,rgba(255,204,0,0.08),rgba(255,255,255,0.02));
     }
 
-    .top h1{
-      font-size:72px;
+    .brand{
+      margin-bottom:50px;
+    }
+
+    .brand h1{
+      font-size:48px;
       font-weight:900;
-      margin-bottom:18px;
+      line-height:1.1;
+      margin-bottom:14px;
     }
 
     .gold{
       color:#facc15;
     }
 
-    .top p{
-      color:#aaa;
-      font-size:18px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:28px;
-    }
-
-    .card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:32px;
-      padding:35px;
-      backdrop-filter:blur(20px);
-      transition:0.35s;
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card:hover{
-      transform:translateY(-8px) scale(1.02);
-      border-color:rgba(250,204,21,0.3);
-    }
-
-    .icon{
-      width:75px;
-      height:75px;
-      border-radius:24px;
-      background:linear-gradient(to bottom right,#facc15,#f59e0b);
-      margin-bottom:25px;
-    }
-
-    .card h3{
-      font-size:28px;
-      margin-bottom:14px;
-    }
-
-    .card p{
-      color:#aaa;
+    .brand p{
+      color:#a1a1aa;
+      font-size:17px;
       line-height:1.8;
-      margin-bottom:25px;
+      max-width:500px;
     }
 
-    .enter{
-      background:#facc15;
-      color:black;
-      border:none;
-      padding:14px 22px;
+    .features{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .feature{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .feature-icon{
+      width:50px;
+      height:50px;
       border-radius:16px;
-      font-weight:800;
-      cursor:pointer;
+      background:linear-gradient(to bottom right,#facc15,#f59e0b);
+    }
+
+    .feature h4{
+      margin-bottom:5px;
+      font-size:17px;
+    }
+
+    .feature p{
+      color:#aaa;
+      font-size:14px;
+    }
+
+    /* RIGHT */
+
+    .right{
+      padding:70px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:rgba(0,0,0,0.25);
+    }
+
+    .form-box{
+      width:100%;
+      max-width:430px;
+    }
+
+    .form-box h2{
+      font-size:42px;
+      margin-bottom:12px;
+      font-weight:900;
+    }
+
+    .form-box .sub{
+      color:#aaa;
+      margin-bottom:40px;
+      line-height:1.7;
+    }
+
+    .input-group{
+      margin-bottom:24px;
+    }
+
+    .input-group label{
+      display:block;
+      margin-bottom:10px;
+      color:#ddd;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .input-group input,
+    .input-group select{
+      width:100%;
+      padding:18px 20px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.04);
+      color:white;
+      outline:none;
+      font-size:15px;
       transition:0.3s;
     }
 
-    .enter:hover{
-      transform:scale(1.04);
+    .input-group input:focus,
+    .input-group select:focus{
+      border-color:rgba(250,204,21,0.4);
+      box-shadow:0 0 0 4px rgba(250,204,21,0.08);
     }
 
-    .tag{
-      position:absolute;
-      top:20px;
-      right:20px;
-      background:rgba(250,204,21,0.12);
+    option{
+      background:#111;
+    }
+
+    .remember{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:28px;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .remember label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#bbb;
+      font-size:14px;
+    }
+
+    .remember a{
       color:#facc15;
-      border:1px solid rgba(250,204,21,0.2);
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:700;
+      text-decoration:none;
+      font-size:14px;
     }
 
-    @media(max-width:700px){
+    .login-btn{
+      width:100%;
+      padding:20px;
+      border:none;
+      border-radius:20px;
+      background:linear-gradient(to right,#facc15,#f59e0b);
+      color:black;
+      font-size:17px;
+      font-weight:900;
+      cursor:pointer;
+      transition:0.35s;
+      box-shadow:0 20px 40px rgba(250,204,21,0.2);
+    }
 
-      .top h1{
-        font-size:48px;
+    .login-btn:hover{
+      transform:translateY(-4px) scale(1.01);
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:30px;
+      color:#888;
+      font-size:14px;
+      line-height:1.8;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:1000px){
+
+      .login-container{
+        grid-template-columns:1fr;
+      }
+
+      .left{
+        display:none;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .right{
+        padding:40px 25px;
+      }
+
+      .form-box h2{
+        font-size:34px;
       }
 
     }
@@ -164,59 +289,124 @@
 </head>
 <body>
 
-  <div class="bg">
+  <div class="background">
     <div class="glow g1"></div>
     <div class="glow g2"></div>
   </div>
 
-  <div class="wrapper">
 
-    <div class="top">
-
-      <h1>
-        Employee <span class="gold">Access Portal</span>
-      </h1>
-
-      <p>
-        Select your role to enter the Globalix employee dashboard.
-      </p>
-
-    </div>
-
-
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 40px;">
-      <label for="role-select" style="font-size: 20px; color: #facc15; font-weight: 600;">Select Role</label>
-      <select id="role-select" style="padding: 14px 22px; border-radius: 16px; font-size: 18px; min-width: 260px;">
-        <option value="">-- Choose your role --</option>
-        <option value="webdev">Web Developer</option>
-        <option value="designer">Graphic Designer</option>
-        <option value="marketing">Digital Marketer</option>
-        <option value="sales">Sales Team</option>
-        <option value="admin">Management</option>
-        <option value="support">IT Support</option>
-      </select>
-      <button class="enter" id="enter-dashboard-btn">Enter Dashboard</button>
-      <script>
-        document.getElementById('enter-dashboard-btn').onclick = function() {
-          var role = document.getElementById('role-select').value;
-          var map = {
-            webdev: 'auth.html?dashboard=webdev',
-            designer: 'auth.html?dashboard=designer',
-            marketing: 'auth.html?dashboard=marketing',
-            sales: 'auth.html?dashboard=sales',
-            admin: 'auth.html?dashboard=admin',
-            support: 'auth.html?dashboard=support'
-          };
-          if (map[role]) {
-            window.location.href = map[role];
-          } else {
-            alert('Please select your role.');
-          }
-        };
-      </script>
-    </div>
-
+  <div class="background">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
   </div>
+
+  <div class="login-glass-card" style="max-width:420px;width:100%;margin:auto;background:rgba(255,255,255,0.07);border-radius:32px;box-shadow:0 8px 48px #0007,0 1.5px 8px #facc1533;border:1.5px solid rgba(255,255,255,0.09);backdrop-filter:blur(18px);padding:48px 36px 36px 36px;display:flex;flex-direction:column;align-items:center;">
+    <div style="text-align:center;margin-bottom:32px;">
+      <img src="https://img.icons8.com/fluency/96/lock-2.png" alt="Employee Login" style="width:64px;height:64px;margin-bottom:10px;filter:drop-shadow(0 2px 8px #facc1555);">
+      <h1 style="font-size:2.2rem;font-weight:900;letter-spacing:-1px;margin-bottom:8px;">Employee <span class="gold">Login</span></h1>
+      <div style="color:#aaa;font-size:1.1rem;line-height:1.6;">Sign in to access your dashboard and workspace.</div>
+    </div>
+    <form id="empLoginForm" style="width:100%;">
+      <div class="input-group">
+        <label for="empName">Employee Name</label>
+        <div style="position:relative;">
+          <input id="empName" type="text" placeholder="Enter your name" required style="padding-left:44px;">
+          <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#facc15;font-size:1.2em;">
+            <svg width="22" height="22" fill="none" stroke="#facc15" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 8-4 8-4s8 0 8 4"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="empEmail">Email</label>
+        <div style="position:relative;">
+          <input id="empEmail" type="email" placeholder="employee@globalixinc.com" required style="padding-left:44px;">
+          <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#facc15;font-size:1.2em;">
+            <svg width="22" height="22" fill="none" stroke="#facc15" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="empPass">Password</label>
+        <div style="position:relative;">
+          <input id="empPass" type="password" placeholder="Enter your password" required style="padding-left:44px;">
+          <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#facc15;font-size:1.2em;">
+            <svg width="22" height="22" fill="none" stroke="#facc15" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><circle cx="12" cy="10" r="1"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="empDept">Department</label>
+        <select id="empDept" required>
+          <option value="">Select Department</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Sales">Sales</option>
+          <option value="Management">Management</option>
+          <option value="IT Support">IT Support</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="empAccessId">Access ID</label>
+        <input id="empAccessId" type="text" placeholder="Enter your department Access ID" required>
+      </div>
+      <div class="remember" style="margin-bottom:18px;">
+        <label style="color:#bbb;font-size:14px;"><input type="checkbox" id="empRemember"> Remember me</label>
+        <a href="#" style="color:#facc15;font-size:14px;">Forgot Password?</a>
+      </div>
+      <div id="empLoginError" style="color:#f87171;height:20px;margin-bottom:10px;text-align:center;"></div>
+      <button type="submit" class="login-btn" style="margin-top:8px;">Access Dashboard</button>
+    </form>
+    <div class="footer" style="margin-top:30px;color:#888;font-size:14px;line-height:1.8;text-align:center;">
+      © 2026 Emmanuel Globalix Tech Solutions<br>Internal Employee Access System
+    </div>
+  </div>
+
+  <script>
+
+    document.getElementById('empLoginForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('empName').value.trim();
+      const email = document.getElementById('empEmail').value.trim();
+      const pass = document.getElementById('empPass').value.trim();
+      const dept = document.getElementById('empDept').value;
+      const accessId = document.getElementById('empAccessId').value.trim();
+      const errorDiv = document.getElementById('empLoginError');
+      // Dashboard Access IDs
+      const ids = {
+        "Web Development": "WDV-!7zQp@2026-#xLw8$2nV",
+        "Graphic Design": "DSG-#2Lp!xQw7$2026-@nV",
+        "Marketing": "MKT-!xQw7$1pLz@2026-#Fv",
+        "Sales": "SLS-#Fv!xQw7$1pLz@2026-",
+        "Management": "AGT-92!xQw7$1pLz@2026-ADMIN-#Fv",
+        "IT Support": "SUP-!xQw7$1pLz@2026-#Fv"
+      };
+      const redirects = {
+        "Web Development": "dashboard-webdev.html",
+        "Graphic Design": "dashboard-designer.html",
+        "Marketing": "dashboard-marketing.html",
+        "Sales": "dashboard-sales.html",
+        "Management": "dashboard-admin.html",
+        "IT Support": "dashboard-support.html"
+      };
+      if(!name || !email || !pass || !dept || !accessId) {
+        errorDiv.textContent = "Please fill in all fields.";
+        return;
+      }
+      if(!ids[dept]) {
+        errorDiv.textContent = "Please select a valid department.";
+        return;
+      }
+      if(accessId !== ids[dept]) {
+        errorDiv.textContent = "Invalid Access ID for selected department.";
+        return;
+      }
+      // Simulate login success
+      errorDiv.textContent = "";
+      sessionStorage.setItem('employeeName', name);
+      window.location.href = redirects[dept];
+    };
+  </script>
 
 </body>
 </html>

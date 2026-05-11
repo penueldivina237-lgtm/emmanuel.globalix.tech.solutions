@@ -625,11 +625,12 @@
 <body>
 
   <!-- BACKGROUND -->
-
   <div class="bg">
     <div class="glow glow1"></div>
     <div class="glow glow2"></div>
   </div>
+
+
 
   <!-- HEADER -->
 
@@ -651,9 +652,23 @@
       <!-- Employees dropdown script removed as requested -->
       </script>
 
+
       <button class="btn btn-primary">
         Book Consultation
       </button>
+
+      <button id="signinBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:10px 22px;border:none;border-radius:8px;cursor:pointer;font-size:16px;position:absolute;top:20px;right:20px;z-index:10;">Sign In</button>
+</header>
+
+<script>
+  // Simple sign in/out for main index
+  const INDEX_PASS = "globalix2026";
+  const INDEX_ACCESS_KEY = "employee_index_access";
+  // Make Sign In button always go to employee-login.html
+  document.getElementById('signinBtn').onclick = function() {
+    window.location.href = 'employee-login.html';
+  };
+</script>
 
     </div>
   </header>
@@ -1132,6 +1147,8 @@
   <!-- JAVASCRIPT -->
 
   <script>
+
+
 
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach((entry)=>{

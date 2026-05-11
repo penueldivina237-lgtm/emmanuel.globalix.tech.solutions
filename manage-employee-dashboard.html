@@ -364,22 +364,22 @@
 
     <main class="main">
 
-      <div class="topbar">
 
+      <div class="topbar">
         <div class="welcome">
           <h2>Management Dashboard</h2>
           <p>Welcome back, Admin!</p>
         </div>
-
-        <div class="profile">
-          <div class="avatar"></div>
-
-          <div>
-            <h4>Emmanuel Divine</h4>
-            <span>Administrator</span>
+        <div style="display:flex;align-items:center;gap:18px;">
+          <div class="profile">
+            <div class="avatar"></div>
+            <div>
+              <h4>Emmanuel Divine</h4>
+              <span>Administrator</span>
+            </div>
           </div>
+          <button id="signinBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:10px 22px;border:none;border-radius:8px;cursor:pointer;font-size:16px;">Sign In</button>
         </div>
-
       </div>
 
       <!-- STATS -->
@@ -460,5 +460,64 @@
 
   </div>
 
+<script>
+  // Simple employee access protection with Sign In/Out button
+  const EMPLOYEE_PASS = "globalix2026"; // Change this password as needed
+  const ACCESS_KEY = "employee_dashboard_access";
+  function showPasswordPrompt() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.inset = 0;
+    overlay.style.background = 'rgba(0,0,0,0.95)';
+    overlay.style.zIndex = 9999;
+    overlay.style.display = 'flex';
+    overlay.style.flexDirection = 'column';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.innerHTML = `
+      <div style="background:#18181b;padding:40px 30px;border-radius:18px;box-shadow:0 4px 32px #000a;max-width:90vw;width:350px;text-align:center;">
+        <h2 style="color:#facc15;margin-bottom:18px;">Employee Access</h2>
+        <p style="color:#fff;margin-bottom:18px;">Enter the employee password to access this dashboard.</p>
+        <input id="empPassInput" type="password" placeholder="Password" style="padding:12px 16px;border-radius:8px;border:none;width:100%;margin-bottom:18px;font-size:16px;outline:none;" autofocus />
+        <div id="empPassError" style="color:#f87171;height:20px;margin-bottom:10px;"></div>
+        <button id="empPassBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;font-size:16px;">Access</button>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    document.getElementById('empPassBtn').onclick = function() {
+      const val = document.getElementById('empPassInput').value;
+      if(val === EMPLOYEE_PASS) {
+        sessionStorage.setItem(ACCESS_KEY, '1');
+        overlay.remove();
+        updateSigninBtn();
+      } else {
+        document.getElementById('empPassError').textContent = "Incorrect password.";
+      }
+    };
+    document.getElementById('empPassInput').addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') document.getElementById('empPassBtn').click();
+    });
+  }
+  function updateSigninBtn() {
+    const btn = document.getElementById('signinBtn');
+    if (!btn) return;
+    if(sessionStorage.getItem(ACCESS_KEY) === '1') {
+      btn.textContent = 'Sign Out';
+      btn.onclick = function() {
+        sessionStorage.removeItem(ACCESS_KEY);
+        location.reload();
+      };
+    } else {
+      btn.textContent = 'Sign In';
+      btn.onclick = function() {
+        showPasswordPrompt();
+      };
+    }
+  }
+  updateSigninBtn();
+  if(sessionStorage.getItem(ACCESS_KEY) !== '1') {
+    showPasswordPrompt();
+  }
+</script>
 </body>
 </html>
