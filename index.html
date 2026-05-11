@@ -141,7 +141,7 @@
       border:1px solid rgba(255,255,255,0.1);
       color:white;
       padding:14px 28px;
-      border-radius:18px;
+      border-radius:999px;
       backdrop-filter:blur(12px);
     }
 
@@ -653,11 +653,9 @@
       </script>
 
 
-      <button class="btn btn-primary">
-        Book Consultation
-      </button>
 
-      <button id="signinBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:10px 22px;border:none;border-radius:8px;cursor:pointer;font-size:16px;position:absolute;top:20px;right:20px;z-index:10;">Sign In</button>
+
+      <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;">Token</button>
 </header>
 
 <script>
@@ -676,11 +674,11 @@
     overlay.style.alignItems = 'center';
     overlay.innerHTML = `
       <div style="background:#18181b;padding:40px 30px;border-radius:18px;box-shadow:0 4px 32px #000a;max-width:90vw;width:350px;text-align:center;">
-        <h2 style="color:#facc15;margin-bottom:18px;">Employee Sign In</h2>
-        <p style="color:#fff;margin-bottom:18px;">Enter the employee password to sign in.</p>
+        <h2 style="color:#facc15;margin-bottom:18px;">Employee Token</h2>
+        <p style="color:#fff;margin-bottom:18px;">Enter the employee password to access with your token.</p>
         <input id="indexPassInput" type="password" placeholder="Password" style="padding:12px 16px;border-radius:8px;border:none;width:100%;margin-bottom:18px;font-size:16px;outline:none;" autofocus />
         <div id="indexPassError" style="color:#f87171;height:20px;margin-bottom:10px;"></div>
-        <button id="indexPassBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;font-size:16px;">Access</button>
+        <button id="indexPassBtn" class="btn btn-primary" style="padding:12px 24px;font-size:16px;">Access</button>
       </div>
     `;
     document.body.appendChild(overlay);
@@ -708,7 +706,7 @@
         location.reload();
       };
     } else {
-      btn.textContent = 'Sign In';
+      btn.textContent = 'Token';
       btn.onclick = function() {
         showIndexPasswordPrompt();
       };
@@ -743,10 +741,9 @@
         </p>
 
         <div class="hero-buttons">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary" onclick="window.location.href='book-consultation.html'">
             Book Consultation
           </button>
-
           <button class="btn btn-secondary">
             View Services
           </button>
