@@ -1,0 +1,10 @@
+# Dashboard Access Verification IDs (as of May 11, 2026)
+
+Store this file securely. Distribute IDs only to authorized personnel.
+
+- Admin Dashboard: AGT-92!xQw7$1pLz@2026-ADMIN-#Fv
+- Web Developer: WDV-!7zQp@2026-#xLw8$2nV
+- Graphic Designer: DSG-#2Lp!xQw7$2026-@nV
+- Digital Marketer: MKT-!xQw7$1pLz@2026-#Fv
+- Sales Team: SLS-#Fv!xQw7$1pLz@2026-
+- IT Support: SUP-!xQw7$1pLz@2026-#Fv

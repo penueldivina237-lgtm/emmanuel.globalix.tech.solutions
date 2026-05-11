@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Authentication</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    body {background: #050505; color: #fff; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;}
+    .auth-container {background: rgba(255,255,255,0.06); border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); padding: 48px 36px; width: 100%; max-width: 370px; text-align: center;}
+    h2 {font-size: 2rem; font-weight: 900; margin-bottom: 18px; color: #facc15;}
+    label {display: block; margin-bottom: 10px; font-weight: 600;}
+    input {width: 100%; padding: 14px; border-radius: 12px; border: none; margin-bottom: 18px; font-size: 1rem; background: rgba(255,255,255,0.12); color: #fff;}
+    button {width: 100%; padding: 14px; border-radius: 12px; border: none; background: linear-gradient(to right,#facc15,#f59e0b); color: #222; font-weight: 900; font-size: 1.1rem; cursor: pointer; transition: 0.2s;}
+    button:hover {background: linear-gradient(to right,#f59e0b,#facc15);}
+    .error {color: #ff5252; margin-bottom: 10px;}
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Company Verification</h2>
+    <form id="authForm">
+      <label for="companyId">Enter Company Verification ID</label>
+      <input type="password" id="companyId" name="companyId" required placeholder="Verification ID" />
+      <div class="error" id="errorMsg" style="display:none;"></div>
+      <button type="submit">Access Dashboard</button>
+    </form>
+  </div>
+  <script>
+    // Map each dashboard password to its page
+    const passwordToPage = {
+      'AGT-92!xQw7$1pLz@2026-ADMIN-#Fv': 'dashboard-admin.html',
+      'WDV-!7zQp@2026-#xLw8$2nV': 'dashboard-webdev.html',
+      'DSG-#2Lp!xQw7$2026-@nV': 'dashboard-designer.html',
+      'MKT-!xQw7$1pLz@2026-#Fv': 'dashboard-marketing.html',
+      'SLS-#Fv!xQw7$1pLz@2026-': 'dashboard-sales.html',
+      'SUP-!xQw7$1pLz@2026-#Fv': 'dashboard-support.html'
+    };
+    document.getElementById('authForm').onsubmit = function(e) {
+      e.preventDefault();
+      const input = document.getElementById('companyId').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+      if (passwordToPage[input]) {
+        window.location.href = passwordToPage[input];
+      } else {
+        errorMsg.textContent = 'Invalid Verification ID.';
+        errorMsg.style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emmanuel Globalix Tech Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* BACKGROUND */
+
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .glow{
+      position:absolute;
+      border-radius:9999px;
+      filter:blur(120px);
+    }
+
+    .glow1{
+      width:500px;
+      height:500px;
+      background:rgba(255,196,0,0.12);
+      top:-100px;
+      left:-100px;
+    }
+
+    .glow2{
+      width:500px;
+      height:500px;
+      background:rgba(0,98,255,0.15);
+      right:-100px;
+      bottom:-100px;
+    }
+
+    .container{
+      width:90%;
+      max-width:1280px;
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:999;
+      backdrop-filter:blur(20px);
+      background:rgba(0,0,0,0.45);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px 0;
+    }
+
+    .logo h1{
+      font-size:28px;
+      font-weight:800;
+      color:#facc15;
+    }
+
+    .logo span{
+      color:white;
+    }
+
+    .logo p{
+      font-size:11px;
+      letter-spacing:5px;
+      color:#888;
+      margin-top:4px;
+    }
+
+    nav{
+      display:flex;
+      gap:35px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#ccc;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#facc15;
+    }
+
+    /* BUTTONS */
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      transition:0.35s ease;
+      font-weight:700;
+    }
+
+    .btn-primary{
+      background:#facc15;
+      color:black;
+      padding:14px 28px;
+      border-radius:999px;
+      box-shadow:0 10px 40px rgba(250,204,21,0.2);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px) scale(1.03);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      color:white;
+      padding:14px 28px;
+      border-radius:18px;
+      backdrop-filter:blur(12px);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:120px 0 100px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(250,204,21,0.1);
+      border:1px solid rgba(250,204,21,0.2);
+      color:#fde047;
+      font-size:14px;
+      margin-bottom:28px;
+    }
+
+    .hero h2{
+      font-size:72px;
+      line-height:1.05;
+      font-weight:900;
+      margin-bottom:28px;
+      letter-spacing:-2px;
+    }
+
+    .gold{
+      color:#facc15;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#a1a1aa;
+      line-height:1.9;
+      max-width:650px;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    /* GLASS */
+
+    .glass{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(24px);
+      border-radius:32px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .hero-card{
+      padding:40px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .stat{
+      border-radius:24px;
+      padding:30px;
+    }
+
+    .yellow{
+      background:linear-gradient(to bottom right,rgba(250,204,21,0.15),rgba(250,204,21,0.03));
+      border:1px solid rgba(250,204,21,0.2);
+    }
+
+    .blue{
+      background:linear-gradient(to bottom right,rgba(59,130,246,0.15),rgba(59,130,246,0.03));
+      border:1px solid rgba(59,130,246,0.2);
+    }
+
+    .stat h3{
+      font-size:54px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .yellow h3{
+      color:#facc15;
+    }
+
+    .blue h3{
+      color:#60a5fa;
+    }
+
+    .stat p{
+      color:#d4d4d8;
+    }
+
+    .info-box{
+      margin-top:20px;
+      padding:30px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .info-box h4{
+      font-size:28px;
+      margin-bottom:20px;
+    }
+
+    .info-box p{
+      color:#a1a1aa;
+      line-height:1.8;
+    }
+
+    section{
+      padding:120px 0;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-header h3{
+      font-size:58px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .section-header p{
+      color:#a1a1aa;
+      font-size:18px;
+    }
+
+    /* ABOUT */
+
+    .about{
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-content{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-content p{
+      color:#c4c4c7;
+      line-height:2;
+      font-size:18px;
+    }
+
+    /* SERVICES */
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      padding:40px;
+      transition:0.4s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(250,204,21,0.4);
+    }
+
+    .icon{
+      width:70px;
+      height:70px;
+      border-radius:24px;
+      background:linear-gradient(to bottom right,#facc15,#f59e0b);
+      margin-bottom:28px;
+    }
+
+    .card h4{
+      font-size:28px;
+      margin-bottom:18px;
+    }
+
+    .card p{
+      color:#a1a1aa;
+      line-height:1.8;
+    }
+
+    /* WHY */
+
+    .border-top{
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+    }
+
+    .section-title-left{
+      font-size:58px;
+      font-weight:900;
+      margin-bottom:40px;
+    }
+
+    .features{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .feature{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:22px;
+      border-radius:24px;
+    }
+
+    .feature span{
+      font-size:18px;
+      color:#e4e4e7;
+    }
+
+    .dot{
+      width:14px;
+      height:14px;
+      border-radius:999px;
+      background:#facc15;
+    }
+
+    .future-box{
+      padding:50px;
+      border-radius:36px;
+      background:
+      linear-gradient(
+        to bottom right,
+        rgba(250,204,21,0.12),
+        rgba(59,130,246,0.12)
+      );
+    }
+
+    .future-box h4{
+      font-size:42px;
+      margin-bottom:25px;
+    }
+
+    .future-box p{
+      color:#c4c4c7;
+      line-height:1.9;
+      margin-bottom:35px;
+    }
+
+    /* PORTFOLIO */
+
+    .portfolio-grid,
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .portfolio-card{
+      overflow:hidden;
+      border-radius:32px;
+      transition:0.4s;
+    }
+
+    .portfolio-card:hover{
+      transform:scale(1.02);
+    }
+
+    .portfolio-image{
+      height:260px;
+      background:
+      linear-gradient(
+        to bottom right,
+        rgba(250,204,21,0.18),
+        rgba(59,130,246,0.18)
+      );
+    }
+
+    .portfolio-content{
+      padding:30px;
+    }
+
+    .portfolio-content h4{
+      font-size:28px;
+      margin-bottom:18px;
+    }
+
+    .portfolio-content p{
+      color:#a1a1aa;
+      line-height:1.8;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonial-card{
+      padding:40px;
+      border-radius:32px;
+    }
+
+    .stars{
+      color:#facc15;
+      margin-bottom:25px;
+      font-size:22px;
+    }
+
+    .testimonial-card p{
+      color:#d4d4d8;
+      line-height:1.9;
+      margin-bottom:28px;
+    }
+
+    .testimonial-user h4{
+      margin-bottom:6px;
+    }
+
+    .testimonial-user span{
+      color:#71717a;
+    }
+
+    /* CONTACT */
+
+    .contact-box{
+      padding:70px;
+      border-radius:40px;
+      text-align:center;
+    }
+
+    .contact-box h3{
+      font-size:58px;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      color:#c4c4c7;
+      max-width:700px;
+      margin:auto;
+      line-height:1.9;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin:50px 0;
+    }
+
+    .contact-card{
+      padding:30px;
+      border-radius:24px;
+      background:rgba(0,0,0,0.4);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-card h4{
+      color:#facc15;
+      margin-bottom:12px;
+    }
+
+    .contact-card span{
+      color:#d4d4d8;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:60px 20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+      color:#71717a;
+    }
+
+    footer h4{
+      color:#facc15;
+      font-size:32px;
+      margin-bottom:18px;
+    }
+
+    footer p{
+      margin-bottom:30px;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin-bottom:30px;
+    }
+
+    .socials a{
+      text-decoration:none;
+      color:#a1a1aa;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      color:#facc15;
+    }
+
+    /* ANIMATIONS */
+
+    .fade{
+      opacity:0;
+      transform:translateY(50px);
+      transition:1s ease;
+    }
+
+    .fade.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:1000px){
+
+      .hero-grid,
+      .why-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero h2{
+        font-size:52px;
+      }
+
+      nav{
+        display:none;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero{
+        padding-top:80px;
+      }
+
+      .hero h2{
+        font-size:42px;
+      }
+
+      .section-header h3,
+      .section-title-left,
+      .contact-box h3{
+        font-size:40px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .contact-box{
+        padding:40px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+
+  <div class="bg">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+  </div>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <div class="logo">
+        <h1>Emmanuel <span>Globalix</span></h1>
+        <p>TECH SOLUTIONS</p>
+      </div>
+
+      <nav style="position: relative;">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <div class="emp-menu" style="display:inline-block;position:relative;">
+          <a href="#" id="empMenuBtn" style="cursor:pointer;user-select:none;" aria-haspopup="true" aria-expanded="false" tabindex="0">Employees &#x25BC;</a>
+          <div style="display:none;position:absolute;top:100%;left:0;background:#18181b;border-radius:10px;box-shadow:0 4px 24px #0008;min-width:220px;z-index:1000;" class="emp-dropdown" role="menu">
+            <a href="employee-login.html" style="display:block;padding:12px 24px;color:#facc15;text-decoration:none;">Role Selection</a>
+            <a href="auth.html?dashboard=admin" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Admin Dashboard</a>
+            <a href="auth.html?dashboard=webdev" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Web Developer</a>
+            <a href="auth.html?dashboard=designer" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Graphic Designer</a>
+            <a href="auth.html?dashboard=marketing" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Digital Marketer</a>
+            <a href="auth.html?dashboard=sales" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Sales Team</a>
+            <a href="auth.html?dashboard=support" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">IT Support</a>
+          </div>
+        </div>
+      </nav>
+      <script>
+        // Employees dropdown: show on click, hover, and keyboard
+        const empMenuBtn = document.getElementById('empMenuBtn');
+        const empMenuWrap = document.querySelector('.emp-menu');
+        const empDropdown = document.querySelector('.emp-dropdown');
+        let dropdownOpen = false;
+        function showDropdown() {
+          empDropdown.style.display = 'block';
+          empMenuBtn.setAttribute('aria-expanded', 'true');
+          dropdownOpen = true;
+        }
+        function hideDropdown() {
+          empDropdown.style.display = 'none';
+          empMenuBtn.setAttribute('aria-expanded', 'false');
+          dropdownOpen = false;
+        }
+        empMenuBtn.addEventListener('click', e => {
+          e.preventDefault();
+          dropdownOpen ? hideDropdown() : showDropdown();
+        });
+        empMenuBtn.addEventListener('mouseenter', showDropdown);
+        empMenuWrap.addEventListener('mouseleave', hideDropdown);
+        empMenuBtn.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dropdownOpen ? hideDropdown() : showDropdown();
+          } else if (e.key === 'Escape') {
+            hideDropdown();
+            empMenuBtn.blur();
+          }
+        });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', e => {
+          if (!empMenuWrap.contains(e.target)) hideDropdown();
+        });
+      </script>
+      </script>
+
+      <button class="btn btn-primary">
+        Book Consultation
+      </button>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div class="fade">
+
+        <div class="tag">
+          Canadian-Based Digital Solutions Company
+        </div>
+
+        <h2>
+          Innovative Digital Solutions for
+          <span class="gold">Modern Businesses</span>
+        </h2>
+
+        <p>
+          We help businesses grow through premium website development,
+          mobile apps, branding, IT consulting, and scalable digital transformation solutions.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary">
+            Book Consultation
+          </button>
+
+          <button class="btn btn-secondary">
+            View Services
+          </button>
+        </div>
+
+      </div>
+
+      <div class="glass hero-card fade">
+
+        <div class="stats">
+
+          <div class="stat yellow">
+            <h3>50+</h3>
+            <p>Projects Delivered</p>
+          </div>
+
+          <div class="stat blue">
+            <h3>24/7</h3>
+            <p>Client Support</p>
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <h4>
+            Premium Technology Solutions
+          </h4>
+
+          <p>
+            Modern websites, business systems, scalable applications,
+            and enterprise-grade digital experiences.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="about">
+
+    <div class="container">
+
+      <div class="about-content fade">
+
+        <div class="section-header">
+
+          <h3>
+            About <span class="gold">Us</span>
+          </h3>
+
+        </div>
+
+        <p>
+          Emmanuel Globalix Tech Solutions is a Canadian-based digital solutions company specializing in professional website development, mobile app development, IT consulting, branding, and business technology solutions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-header fade">
+
+        <h3>
+          Our <span class="gold">Services</span>
+        </h3>
+
+        <p>
+          Premium digital solutions tailored for modern businesses.
+        </p>
+
+      </div>
+
+      <div class="services">
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>Website Development</h4>
+          <p>Modern responsive websites designed for business growth.</p>
+        </div>
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>Mobile App Development</h4>
+          <p>Premium mobile experiences for Android and iOS.</p>
+        </div>
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>IT Consulting</h4>
+          <p>Business transformation and enterprise technology strategy.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHY CHOOSE US -->
+
+  <section class="section border-top">
+
+    <div class="container why-grid">
+
+      <div class="fade">
+
+        <h3 class="section-title-left">
+          Why Choose <span class="gold">Us</span>
+        </h3>
+
+        <div class="features">
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Professional Team</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Fast Delivery</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Modern Technology</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Reliable Support</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Scalable Solutions</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Premium UI/UX</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="glass future-box fade">
+
+        <h4>
+          Building Future-Ready Businesses
+        </h4>
+
+        <p>
+          Our mission is to provide modern technology solutions that help
+          businesses scale faster and build a strong online presence.
+        </p>
+
+        <button class="btn btn-primary">
+          Start Your Project
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PORTFOLIO -->
+
+  <section id="portfolio">
+
+    <div class="container">
+
+      <div class="section-header fade">
+
+        <h3>
+          Project <span class="gold">Showcase</span>
+        </h3>
+
+        <p>
+          Modern digital experiences built for ambitious brands.
+        </p>
+
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card glass fade">
+
+          <div class="portfolio-image"></div>
+
+          <div class="portfolio-content">
+
+            <h4>Premium Business Platform</h4>
+
+            <p>
+              Responsive digital platform with scalable technology infrastructure.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="portfolio-card glass fade">
+
+          <div class="portfolio-image"></div>
+
+          <div class="portfolio-content">
+
+            <h4>Enterprise Web Solution</h4>
+
+            <p>
+              Enterprise-level systems with optimized performance and branding.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="portfolio-card glass fade">
+
+          <div class="portfolio-image"></div>
+
+          <div class="portfolio-content">
+
+            <h4>Digital Growth Platform</h4>
+
+            <p>
+              Modern scalable digital experiences for businesses and startups.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="border-top">
+
+    <div class="container">
+
+      <div class="section-header fade">
+
+        <h3>
+          Client <span class="gold">Testimonials</span>
+        </h3>
+
+      </div>
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card glass fade">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            Emmanuel Globalix Tech Solutions delivered an outstanding digital experience.
+          </p>
+
+          <div class="testimonial-user">
+            <h4>Business Client</h4>
+            <span>Toronto, Canada</span>
+          </div>
+
+        </div>
+
+        <div class="testimonial-card glass fade">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            Highly professional team with premium UI and modern solutions.
+          </p>
+
+          <div class="testimonial-user">
+            <h4>Startup Founder</h4>
+            <span>Ontario, Canada</span>
+          </div>
+
+        </div>
+
+        <div class="testimonial-card glass fade">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            Exceptional technology consulting and digital transformation support.
+          </p>
+
+          <div class="testimonial-user">
+            <h4>Corporate Client</h4>
+            <span>Vancouver, Canada</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EMPLOYEE DASHBOARD -->
+
+  <section id="employees" class="border-top">
+    <div class="container">
+      <div class="section-header fade">
+        <h3>
+          Employee <span class="gold">Portal</span>
+        </h3>
+        <p>
+          Secure access for Globalix team members.
+        </p>
+      </div>
+      <div class="glass contact-box fade">
+        <h3>
+          Employee Dashboard Access
+        </h3>
+        <p>
+          Employees can access company tools, projects,
+          schedules, internal updates, and client management systems.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h4>Project Management</h4>
+            <span>Track active company projects.</span>
+          </div>
+          <div class="contact-card">
+            <h4>Team Communication</h4>
+            <span>Access internal staff communication.</span>
+          </div>
+          <div class="contact-card">
+            <h4>Employee Resources</h4>
+            <span>View schedules, files, and updates.</span>
+          </div>
+        </div>
+        <a href="employee-login.html">
+          <button class="btn btn-primary">
+            Open Employee Dashboard
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="glass contact-box fade">
+
+        <h3>
+          Book a <span class="gold">Consultation</span>
+        </h3>
+
+        <p>
+          Ready to build your next digital project?
+        </p>
+
+        <div class="contact-grid">
+
+          <div class="contact-card">
+            <h4>Email</h4>
+            <span>emmanuel@globalix-inc.com</span>
+          </div>
+
+          <div class="contact-card">
+            <h4>Phone</h4>
+            <span>+1 (365) 384-5983</span>
+          </div>
+
+          <div class="contact-card">
+            <h4>Website</h4>
+            <span>emmanueldivine.com</span>
+          </div>
+
+        </div>
+
+        <button class="btn btn-primary">
+          Schedule Session
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h4>
+      Emmanuel Globalix Tech Solutions
+    </h4>
+
+    <p>
+      Innovate • Solve • Grow
+    </p>
+
+    <div class="socials">
+
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+
+    </div>
+
+    <span>
+      © 2026 Emmanuel Globalix Tech Solutions.
+      All rights reserved.
+    </span>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry)=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    },{
+      threshold:0.2
+    });
+
+    document.querySelectorAll('.fade').forEach((el)=>{
+      observer.observe(el);
+    });
+
+  </script>
+
+</body>
+</html>
