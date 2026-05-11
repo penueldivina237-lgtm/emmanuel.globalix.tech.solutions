@@ -359,11 +359,14 @@
     </form>
     <div class="footer" style="margin-top:30px;color:#888;font-size:14px;line-height:1.8;text-align:center;">
       © 2026 Emmanuel Globalix Tech Solutions<br>Internal Employee Access System
-      <span class="signup-link-mobile" style="display:block;margin-top:10px;font-size:12px;color:#aaa;">
-        <a href="#" style="color:#aaa;text-decoration:underline;">Sign up</a>
+      <span class="signup-link-mobile">
+        <a href="#">Sign up</a>
       </span>
     </div>
     <style>
+      .signup-link-mobile {
+        display: none;
+      }
       @media (max-width: 600px) {
         .signup-link-mobile {
           display: block;
@@ -376,11 +379,6 @@
           color: #aaa;
           text-decoration: underline;
           font-size: 12px;
-        }
-      }
-      @media (min-width: 601px) {
-        .signup-link-mobile {
-          display: none;
         }
       }
     </style>
