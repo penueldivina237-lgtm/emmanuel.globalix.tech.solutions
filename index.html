@@ -646,55 +646,9 @@
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
-        <div class="emp-menu" style="display:inline-block;position:relative;">
-          <a href="#" id="empMenuBtn" style="cursor:pointer;user-select:none;" aria-haspopup="true" aria-expanded="false" tabindex="0">Employees &#x25BC;</a>
-          <div style="display:none;position:absolute;top:100%;left:0;background:#18181b;border-radius:10px;box-shadow:0 4px 24px #0008;min-width:220px;z-index:1000;" class="emp-dropdown" role="menu">
-            <a href="employee-login.html" style="display:block;padding:12px 24px;color:#facc15;text-decoration:none;">Role Selection</a>
-            <a href="auth.html?dashboard=admin" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Admin Dashboard</a>
-            <a href="auth.html?dashboard=webdev" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Web Developer</a>
-            <a href="auth.html?dashboard=designer" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Graphic Designer</a>
-            <a href="auth.html?dashboard=marketing" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Digital Marketer</a>
-            <a href="auth.html?dashboard=sales" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">Sales Team</a>
-            <a href="auth.html?dashboard=support" style="display:block;padding:12px 24px;color:#fff;text-decoration:none;">IT Support</a>
-          </div>
-        </div>
+        <!-- Employees dropdown removed as requested -->
       </nav>
-      <script>
-        // Employees dropdown: show on click, hover, and keyboard
-        const empMenuBtn = document.getElementById('empMenuBtn');
-        const empMenuWrap = document.querySelector('.emp-menu');
-        const empDropdown = document.querySelector('.emp-dropdown');
-        let dropdownOpen = false;
-        function showDropdown() {
-          empDropdown.style.display = 'block';
-          empMenuBtn.setAttribute('aria-expanded', 'true');
-          dropdownOpen = true;
-        }
-        function hideDropdown() {
-          empDropdown.style.display = 'none';
-          empMenuBtn.setAttribute('aria-expanded', 'false');
-          dropdownOpen = false;
-        }
-        empMenuBtn.addEventListener('click', e => {
-          e.preventDefault();
-          dropdownOpen ? hideDropdown() : showDropdown();
-        });
-        empMenuBtn.addEventListener('mouseenter', showDropdown);
-        empMenuWrap.addEventListener('mouseleave', hideDropdown);
-        empMenuBtn.addEventListener('keydown', e => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            dropdownOpen ? hideDropdown() : showDropdown();
-          } else if (e.key === 'Escape') {
-            hideDropdown();
-            empMenuBtn.blur();
-          }
-        });
-        // Close dropdown when clicking outside
-        document.addEventListener('click', e => {
-          if (!empMenuWrap.contains(e.target)) hideDropdown();
-        });
-      </script>
+      <!-- Employees dropdown script removed as requested -->
       </script>
 
       <button class="btn btn-primary">
