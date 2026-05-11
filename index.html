@@ -656,7 +656,25 @@
 
 
 
-      <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;">Token</button>
+      <button id="signinBtn" class="btn btn-primary token-btn-desktop">Token</button>
+    /* Token button responsive positioning */
+    .token-btn-desktop {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 10px 22px;
+      font-size: 16px;
+    }
+    @media (max-width: 700px) {
+      .token-btn-desktop {
+        position: static;
+        display: block;
+        margin: 32px auto 0 auto;
+        top: unset;
+        right: unset;
+      }
+    }
 </header>
 
 <script>
@@ -1187,7 +1205,35 @@
       All rights reserved.
     </span>
 
+
+    <!-- Token button for mobile, placed below footer text -->
+    <button id="signinBtnMobile" class="btn btn-primary token-btn-mobile" style="display:none;">Token</button>
   </footer>
+  <script>
+    // Responsive Token button logic
+    function handleTokenBtnDisplay() {
+      const desktopBtn = document.getElementById('signinBtn');
+      let mobileBtn = document.getElementById('signinBtnMobile');
+      if (!mobileBtn) return;
+      if(window.innerWidth <= 700) {
+        desktopBtn.style.display = 'none';
+        mobileBtn.style.display = 'block';
+      } else {
+        desktopBtn.style.display = 'block';
+        mobileBtn.style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', handleTokenBtnDisplay);
+    window.addEventListener('DOMContentLoaded', handleTokenBtnDisplay);
+    // Copy click handler from desktop to mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const desktopBtn = document.getElementById('signinBtn');
+      const mobileBtn = document.getElementById('signinBtnMobile');
+      if (desktopBtn && mobileBtn) {
+        mobileBtn.onclick = desktopBtn.onclick;
+      }
+    });
+  </script>
 
   <!-- JAVASCRIPT -->
 
