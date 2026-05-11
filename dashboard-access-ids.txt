@@ -2,6 +2,15 @@
 
 Store this file securely. Distribute IDs only to authorized personnel.
 
+
+# Employee Department Emails, Passwords & Names
+- Web Developer: employee@globalixtech.com | WdV!2026$#xLw8$2nV | Daniel Smith, Kevin Patel, Aisha Bello, Lucas Martin
+- Graphic Designer: employee@globalixtech.com | Dsg#2026!LpXQw7$ | Grace Kim
+- Digital Marketer: employee@globalixtech.com | Mkt!2026$#FvXQw7$ | Jessica Adams, Brian Thompson, Samuel Osei
+- Sales Team: employee@globalixtech.com | Sls#2026!FvXQw7$1pLz | Linda Williams
+- Management: employee@globalixtech.com | Mgt!2026$#FvXQw7$1pLz | Emmanuel Divine, Sarah Johnson, Michael Brown, Anita Okoro, David Lee
+- IT Support: employee@globalixtech.com | Sup!2026$#FvXQw7$1pLz | Peter Johnson, Mary Clarke
+
 - Admin Dashboard: AGT-92!xQw7$1pLz@2026-ADMIN-#Fv
 - Web Developer: WDV-!7zQp@2026-#xLw8$2nV
 - Graphic Designer: DSG-#2Lp!xQw7$2026-@nV
