@@ -653,7 +653,9 @@
       </script>
 
 
-      <a href="book-consultation.html"><button class="btn btn-primary">Book Consultation</button></a>
+      <button class="btn btn-primary">
+        Book Consultation
+      </button>
 
       <button id="signinBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:10px 22px;border:none;border-radius:8px;cursor:pointer;font-size:16px;position:absolute;top:20px;right:20px;z-index:10;">Sign In</button>
 </header>
@@ -662,10 +664,57 @@
   // Simple sign in/out for main index
   const INDEX_PASS = "globalix2026";
   const INDEX_ACCESS_KEY = "employee_index_access";
-  // Make Sign In button always go to employee-login.html
-  document.getElementById('signinBtn').onclick = function() {
-    window.location.href = 'employee-login.html';
-  };
+  function showIndexPasswordPrompt() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.inset = 0;
+    overlay.style.background = 'rgba(0,0,0,0.95)';
+    overlay.style.zIndex = 9999;
+    overlay.style.display = 'flex';
+    overlay.style.flexDirection = 'column';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.innerHTML = `
+      <div style="background:#18181b;padding:40px 30px;border-radius:18px;box-shadow:0 4px 32px #000a;max-width:90vw;width:350px;text-align:center;">
+        <h2 style="color:#facc15;margin-bottom:18px;">Employee Sign In</h2>
+        <p style="color:#fff;margin-bottom:18px;">Enter the employee password to sign in.</p>
+        <input id="indexPassInput" type="password" placeholder="Password" style="padding:12px 16px;border-radius:8px;border:none;width:100%;margin-bottom:18px;font-size:16px;outline:none;" autofocus />
+        <div id="indexPassError" style="color:#f87171;height:20px;margin-bottom:10px;"></div>
+        <button id="indexPassBtn" style="background:#facc15;color:#18181b;font-weight:700;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;font-size:16px;">Access</button>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    document.getElementById('indexPassBtn').onclick = function() {
+      const val = document.getElementById('indexPassInput').value;
+      if(val === INDEX_PASS) {
+        sessionStorage.setItem(INDEX_ACCESS_KEY, '1');
+        overlay.remove();
+        updateIndexSigninBtn();
+      } else {
+        document.getElementById('indexPassError').textContent = "Incorrect password.";
+      }
+    };
+    document.getElementById('indexPassInput').addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') document.getElementById('indexPassBtn').click();
+    });
+  }
+  function updateIndexSigninBtn() {
+    const btn = document.getElementById('signinBtn');
+    if (!btn) return;
+    if(sessionStorage.getItem(INDEX_ACCESS_KEY) === '1') {
+      btn.textContent = 'Sign Out';
+      btn.onclick = function() {
+        sessionStorage.removeItem(INDEX_ACCESS_KEY);
+        location.reload();
+      };
+    } else {
+      btn.textContent = 'Sign In';
+      btn.onclick = function() {
+        showIndexPasswordPrompt();
+      };
+    }
+  }
+  updateIndexSigninBtn();
 </script>
 
     </div>
@@ -694,7 +743,9 @@
         </p>
 
         <div class="hero-buttons">
-          <a href="book-consultation.html"><button class="btn btn-primary">Book Consultation</button></a>
+          <button class="btn btn-primary">
+            Book Consultation
+          </button>
 
           <button class="btn btn-secondary">
             View Services
@@ -1103,7 +1154,9 @@
 
         </div>
 
-        <a href="book-consultation.html"><button class="btn btn-primary">Schedule Session</button></a>
+        <button class="btn btn-primary">
+          Schedule Session
+        </button>
 
       </div>
 
