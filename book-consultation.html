@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Consultation | Globalix Tech Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #111827, #050505 60%);
+      color: #fff;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 460px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      padding: 42px 34px;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      color: #facc15;
+    }
+
+    p {
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #eab308;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #facc15;
+      box-shadow: 0 0 0 3px rgba(250,204,21,0.15);
+      background: rgba(255,255,255,0.06);
+    }
+
+    textarea {
+      resize: none;
+      min-height: 110px;
+    }
+
+    button {
+      margin-top: 6px;
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #111827;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(250,204,21,0.2);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(250,204,21,0.28);
+    }
+
+    #formMsg {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .success {
+      color: #22c55e;
+    }
+
+    .error {
+      color: #ef4444;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Book a Consultation</h1>
+    <p>Tell us about your project. Our team will reach out within 24–48 hours to schedule your session.</p>
+
+    <form action="https://formspree.io/f/xykoogqb" method="POST" id="consultForm" autocomplete="off">
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="John Doe" required>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="+1 234 567 8901" required>
+      </div>
+      <div class="field">
+        <label>Project Details</label>
+        <textarea name="message" placeholder="Describe your project..." required></textarea>
+      </div>
+      <button type="submit">Submit Request</button>
+      <div id="formMsg"></div>
+    </form>
+  </div>
+
+  <script>
+    // Optional: Show a message after submission
+    document.getElementById('consultForm').addEventListener('submit', function(e) {
+      var msg = document.getElementById('formMsg');
+      msg.textContent = 'Sending...';
+      msg.className = '';
+      setTimeout(function() {
+        msg.textContent = 'Thank you! Your request has been sent. We will contact you soon.';
+        msg.className = 'success';
+      }, 1200);
+    });
+  </script>
+</body>
+</html>
