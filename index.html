@@ -8,175 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-
   <style>
-    /* Desktop/Tablet styles (original site) */
-    #mobile-root { display: none; }
-    @media (max-width: 700px) {
-      #desktop-root { display: none !important; }
-      #mobile-root { display: block !important; }
-      html, body { height: 100vh; min-height: 100vh; background: #000 !important; overflow: hidden !important; }
-    }
-    @media (min-width: 701px) {
-      #desktop-root { display: block !important; }
-      #mobile-root { display: none !important; }
-    }
-    /* App shell styles */
-    :root {
-      --bg: #0F1012;
-      --card: #1C1E21;
-      --accent: #FF9F0A;
-      --text: #FFFFFF;
-      --text-muted: #9BA1A6;
-      --tab-height: 80px;
-    }
-    .phone-viewport {
-      width: 100vw;
-      max-width: 430px;
-      height: 100vh;
-      max-height: 932px;
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
-      border-radius: 32px;
-      box-shadow: 0 0 0 6px #181818;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .app-content {
-      width: 100%;
-      flex: 1 1 auto;
-      height: 100%;
-      overflow-y: auto;
-      padding-bottom: 80px;
-      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s;
-    }
-    body.menu-open .app-content {
-      transform: scale(0.94);
-      filter: blur(15px) brightness(0.7);
-      pointer-events: none;
-    }
-    .tab-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100vw;
-      height: 64px;
-      background: rgba(28, 30, 33, 0.98);
-      backdrop-filter: blur(16px);
-      border-radius: 0 0 32px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1.5px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 -2px 16px rgba(0,0,0,0.18);
-      z-index: 100;
-      padding: 0 8px;
-    }
-    .tab-item {
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      flex: 1;
-      min-width: 60px;
-      height: 64px;
-      font-size: 11px;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-    .tab-item:active, .tab-item.active {
-      color: var(--accent);
-    }
-    .tab-icon { font-size: 22px; }
-    .tab-label { font-size: 11px; font-weight: 700; color: inherit; text-transform: uppercase; letter-spacing: 0.5px; }
-    .nav-orb {
-      width: 54px;
-      height: 54px;
-      background: var(--accent);
-      border-radius: 50%;
-      margin-top: -32px;
-      margin-bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 16px rgba(255, 159, 10, 0.18);
-      cursor: pointer;
-      z-index: 101;
-      transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 2.5px solid #fff2;
-    }
-    body.menu-open .nav-orb {
-      transform: rotate(135deg) scale(1.08);
-      background: #fff;
-    }
-    .menu-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.2);
-      z-index: 90;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 140px;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.4s;
-    }
-    body.menu-open .menu-overlay {
-      opacity: 1;
-      visibility: visible;
-    }
-    .menu-items {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-    }
-    .menu-link {
-      background: #fff;
-      color: #000;
-      padding: 15px 35px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 16px;
-      transform: translateY(40px) scale(0.8);
-      opacity: 0;
-      transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.2);
-    }
-    body.menu-open .menu-link {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    body.menu-open .menu-link:nth-child(1) { transition-delay: 0.05s; transform: translateY(-10px) translateX(-30px); }
-    body.menu-open .menu-link:nth-child(2) { transition-delay: 0.1s; transform: translateY(0px); }
-    body.menu-open .menu-link:nth-child(3) { transition-delay: 0.15s; transform: translateY(-10px) translateX(30px); }
-    .header { padding: 22px 16px 10px; display: flex; justify-content: space-between; align-items: center; }
-    .avatar { width: 36px; height: 36px; background: var(--card); border: 2px solid var(--accent); border-radius: 12px; }
-    .hero-stat {
-      background: var(--accent);
-      margin: 0 12px 14px;
-      border-radius: 24px;
-      padding: 22px 16px;
-      color: #000;
-    }
-    .hero-stat h1 { font-size: 48px; font-weight: 900; letter-spacing: -2px; line-height: 1; }
-    .service-card {
-      background: var(--card);
-      margin: 0 12px 10px;
-      padding: 14px 12px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .service-card .icon-box { width: 36px; height: 36px; background: rgba(255,159,10,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    ::-webkit-scrollbar { display: none; }
 
     *{
       margin:0;
@@ -792,157 +624,279 @@
 </head>
 
 
-
 <body style="overflow:hidden;">
-  <!-- MOBILE APP SHELL ROOT -->
-  <div id="mobile-root">
-    <div class="phone-viewport">
-      <nav class="tab-bar">
-        <a href="#" class="tab-item active">
-          <span class="tab-icon">🏠</span>
-          <span class="tab-label">Home</span>
-        </a>
-        <a href="#" class="tab-item">
-          <span class="tab-icon">📂</span>
-          <span class="tab-label">Projects</span>
-        </a>
-        <div class="nav-orb" onclick="toggleMenu()">
-          <span style="font-size: 32px; font-weight: 200; color: #000;">+</span>
-        </div>
-        <a href="#" class="tab-item">
-          <span class="tab-icon">💬</span>
-          <span class="tab-label">Inbox</span>
-        </a>
-        <a href="#" class="tab-item">
-          <span class="tab-icon">👤</span>
-          <span class="tab-label">Admin</span>
-        </a>
+  <!-- SPLASH SCREEN -->
+  <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canada Flag" style="width:80px;height:56px;margin-bottom:28px;box-shadow:0 4px 24px #0007;border-radius:12px;">
+    <h1 style="color:#facc15;font-size:2.5rem;font-weight:900;letter-spacing:2px;text-align:center;">Emmanuel Globalix Tech Solutions</h1>
+    <div style="margin-top:30px;">
+      <span class="loader" style="display:inline-block;width:48px;height:48px;border:5px solid #facc15;border-top:5px solid #222;border-radius:50%;animation:spin 1s linear infinite;"></span>
+    </div>
+  </div>
+  <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+
+  <!-- BACKGROUND -->
+  <div class="bg">
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+  </div>
+
+
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <div class="logo">
+        <h1>Emmanuel <span>Globalix</span></h1>
+        <p>TECH SOLUTIONS</p>
+      </div>
+
+      <nav style="position: relative;">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <!-- Employees dropdown removed as requested -->
       </nav>
-      <div class="menu-overlay" onclick="toggleMenu()">
-        <div class="menu-items">
-          <a href="#" class="menu-link">Development</a>
-          <a href="#" class="menu-link">Consulting</a>
-          <a href="#" class="menu-link">Branding</a>
-        </div>
+      <!-- Employees dropdown script removed as requested -->
+      </script>
+
+
+
+
+      <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;" onclick="window.location.href='auth.html'">Token</button>
+
+</header>
+
+<script>
+  // Simple sign in/out for main index
+  const INDEX_PASS = "globalix2026";
+  const INDEX_ACCESS_KEY = "employee_index_access";
+  function showIndexPasswordPrompt() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.inset = 0;
+    overlay.style.background = 'rgba(0,0,0,0.95)';
+    overlay.style.zIndex = 9999;
+    overlay.style.display = 'flex';
+    overlay.style.flexDirection = 'column';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.innerHTML = `
+      <div style="background:#18181b;padding:40px 30px;border-radius:18px;box-shadow:0 4px 32px #000a;max-width:90vw;width:350px;text-align:center;">
+        <h2 style="color:#facc15;margin-bottom:18px;">Employee Token</h2>
+        <p style="color:#fff;margin-bottom:18px;">Enter the employee password to access with your token.</p>
+        <input id="indexPassInput" type="password" placeholder="Password" style="padding:12px 16px;border-radius:8px;border:none;width:100%;margin-bottom:18px;font-size:16px;outline:none;" autofocus />
+        <div id="indexPassError" style="color:#f87171;height:20px;margin-bottom:10px;"></div>
+        <button id="indexPassBtn" class="btn btn-primary" style="padding:12px 24px;font-size:16px;">Access</button>
       </div>
-      <div class="app-content" id="scrollArea">
-        <div class="header">
-          <div>
-            <h4 style="color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">GLOBALIX TECH</h4>
-            <h2 style="font-weight: 900;">Dashboard</h2>
-          </div>
-          <div class="avatar"></div>
-        </div>
-        <div class="hero-stat">
-          <p style="font-weight: 800; font-size: 12px; opacity: 0.8;">COMPLETED SERVICES</p>
-          <h1>18</h1>
-          <p style="font-weight: 900; margin-top: 10px;">GLOBAL REACH 2026</p>
-        </div>
-        <p style="padding: 10px 25px; font-size: 11px; font-weight: 900; color: var(--text-muted);">ACTIVE PROJECTS</p>
-        <div class="service-card">
-          <div class="icon-box">🌐</div>
-          <div>
-            <h4 style="font-weight: 800;">Web Infrastructure</h4>
-            <p style="font-size: 12px; color: var(--text-muted);">Cloud Deployment Active</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="icon-box">🛡️</div>
-          <div>
-            <h4 style="font-weight: 800;">System Security</h4>
-            <p style="font-size: 12px; color: var(--text-muted);">Encryption Protocol 5.0</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="icon-box">📊</div>
-          <div>
-            <h4 style="font-weight: 800;">IT Consulting</h4>
-            <p style="font-size: 12px; color: var(--text-muted);">Quarterly Strategy Session</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <div class="icon-box">🎨</div>
-          <div>
-            <h4 style="font-weight: 800;">UX Overhaul</h4>
-            <p style="font-size: 12px; color: var(--text-muted);">Liquid UI Implementation</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- DESKTOP/TABLET ROOT -->
-  <div id="desktop-root">
-    <!-- ...ALL ORIGINAL HTML BODY CONTENT GOES HERE... -->
-    <!-- SPLASH SCREEN -->
-    <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canada Flag" style="width:80px;height:56px;margin-bottom:28px;box-shadow:0 4px 24px #0007;border-radius:12px;">
-      <h1 style="color:#facc15;font-size:2.5rem;font-weight:900;letter-spacing:2px;text-align:center;">Emmanuel Globalix Tech Solutions</h1>
-      <div style="margin-top:30px;">
-        <span class="loader" style="display:inline-block;width:48px;height:48px;border:5px solid #facc15;border-top:5px solid #222;border-radius:50%;animation:spin 1s linear infinite;"></span>
-      </div>
-    </div>
-    <style>
-      @keyframes spin { 100% { transform: rotate(360deg); } }
-    </style>
-    <!-- BACKGROUND -->
-    <div class="bg">
-      <div class="glow glow1"></div>
-      <div class="glow glow2"></div>
-    </div>
-    <!-- ...rest of the original HTML body content... -->
-    <!-- HEADER -->
-    <header>
-      <div class="container nav">
-        <div class="logo">
-          <h1>Emmanuel <span>Globalix</span></h1>
-          <p>TECH SOLUTIONS</p>
-        </div>
-        <nav style="position: relative;">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;" onclick="window.location.href='auth.html'">Token</button>
-      </div>
-    </header>
-    <!-- ...rest of the original HTML body content continues unchanged... -->
-  </div>
-  <script>
-    function toggleMenu() {
-      document.body.classList.toggle('menu-open');
-      if (window.navigator.vibrate) {
-        window.navigator.vibrate(20);
+    `;
+    document.body.appendChild(overlay);
+    document.getElementById('indexPassBtn').onclick = function() {
+      const val = document.getElementById('indexPassInput').value;
+      if(val === INDEX_PASS) {
+        sessionStorage.setItem(INDEX_ACCESS_KEY, '1');
+        overlay.remove();
+        updateIndexSigninBtn();
+      } else {
+        document.getElementById('indexPassError').textContent = "Incorrect password.";
       }
-    }
-    function setActiveTab(idx) {
-      document.querySelectorAll('.tab-bar .tab-item').forEach((el, i) => {
-        if (i === idx) {
-          el.classList.add('active');
-        } else {
-          el.classList.remove('active');
-        }
-      });
-      // Optionally close menu if open
-      document.body.classList.remove('menu-open');
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-      var overlay = document.querySelector('.menu-overlay');
-      if(overlay) {
-        overlay.addEventListener('click', function(e) {
-          if(e.target === this) toggleMenu();
-        });
-      }
-      // Tab navigation logic
-      var tabs = document.querySelectorAll('.tab-bar .tab-item');
-      tabs.forEach((tab, idx) => {
-        tab.addEventListener('click', function(e) {
-          setActiveTab(idx);
-          e.preventDefault();
-        });
-      });
+    };
+    document.getElementById('indexPassInput').addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') document.getElementById('indexPassBtn').click();
     });
-  </script>
+  }
+  // Remove sign in/out logic and always show Token button that goes to auth.html
+</script>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div class="fade">
+
+        <div class="tag">
+          Canadian-Based Digital Solutions Company
+        </div>
+
+        <h2>
+          Innovative Digital Solutions for
+          <span class="gold">Modern Businesses</span>
+        </h2>
+
+        <p>
+          We help businesses grow through premium website development,
+          mobile apps, branding, IT consulting, and scalable digital transformation solutions.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="window.location.href='book-consultation.html'">
+            Book Consultation
+          </button>
+          <button class="btn btn-secondary" onclick="window.location.href='services.html'">
+            View Services
+          </button>
+        </div>
+
+      </div>
+
+      <div class="glass hero-card fade">
+
+        <div class="stats">
+
+          <div class="stat yellow">
+            <h3>50+</h3>
+            <p>Projects Delivered</p>
+          </div>
+
+          <div class="stat blue">
+            <h3>24/7</h3>
+            <p>Client Support</p>
+          </div>
+
+        </div>
+
+        <div class="info-box">
+
+          <h4>
+            Premium Technology Solutions
+          </h4>
+
+          <p>
+            Modern websites, business systems, scalable applications,
+            and enterprise-grade digital experiences.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="about">
+
+    <div class="container">
+
+      <div class="about-content fade">
+
+        <div class="section-header">
+
+          <h3>
+            About <span class="gold">Us</span>
+          </h3>
+
+        </div>
+
+        <p>
+          Emmanuel Globalix Tech Solutions is a Canadian-based digital solutions company specializing in professional website development, mobile app development, IT consulting, branding, and business technology solutions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <div class="container">
+
+      <div class="section-header fade">
+
+        <h3>
+          Our <span class="gold">Services</span>
+        </h3>
+
+        <p>
+          Premium digital solutions tailored for modern businesses.
+        </p>
+
+      </div>
+
+      <div class="services">
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>Website Development</h4>
+          <p>Modern responsive websites designed for business growth.</p>
+        </div>
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>Mobile App Development</h4>
+          <p>Premium mobile experiences for Android and iOS.</p>
+        </div>
+
+        <div class="glass card fade">
+          <div class="icon"></div>
+          <h4>IT Consulting</h4>
+          <p>Business transformation and enterprise technology strategy.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHY CHOOSE US -->
+
+  <section class="section border-top">
+
+    <div class="container why-grid">
+
+      <div class="fade">
+
+        <h3 class="section-title-left">
+          Why Choose <span class="gold">Us</span>
+        </h3>
+
+        <div class="features">
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Professional Team</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Fast Delivery</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Modern Technology</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Reliable Support</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Scalable Solutions</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Premium UI/UX</span>
+          </div>
 
         </div>
 
