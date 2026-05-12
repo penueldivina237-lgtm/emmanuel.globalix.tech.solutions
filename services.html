@@ -1,0 +1,250 @@
+  <!-- PROJECT SHOWCASE -->
+  <section class="showcase-section" style="background:rgba(255,255,255,0.03);padding:60px 0 40px 0;">
+    <div style="max-width:1100px;margin:auto;padding:0 24px;">
+      <h2 style="font-size:2.2rem;font-weight:900;color:#facc15;text-align:center;margin-bottom:18px;">Project Showcase</h2>
+      <div class="showcase-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:900px;margin:40px auto 0 auto;background:rgba(0,0,0,0.08);border-radius:24px;box-shadow:0 4px 32px #0002;overflow:hidden;">
+        <div style="padding:40px 30px;display:flex;flex-direction:column;justify-content:center;">
+          <h3 style="font-size:1.5rem;font-weight:800;color:#facc15;margin-bottom:12px;">AI Solutions for Small Businesses</h3>
+          <p style="color:#cbd5e1;font-size:1.08rem;line-height:1.7;margin-bottom:18px;">We developed a custom AI-powered analytics and automation platform tailored for small businesses. This solution helps owners make smarter decisions, automate routine tasks, and improve customer engagement—all with an easy-to-use dashboard.</p>
+          <ul style="color:#a1a1aa;font-size:1rem;line-height:1.7;margin-bottom:18px;padding-left:18px;">
+            <li>Automated customer insights & reporting</li>
+            <li>AI-driven marketing recommendations</li>
+            <li>Chatbot for 24/7 customer support</li>
+            <li>Seamless integration with existing tools</li>
+          </ul>
+          <span style="display:inline-block;background:#facc15;color:#18181b;font-weight:700;padding:8px 22px;border-radius:999px;font-size:1rem;box-shadow:0 2px 12px #facc1533;">Empowering Small Business Growth</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;padding:30px;">
+          <img src="https://img.icons8.com/color/160/artificial-intelligence.png" alt="AI Project" style="max-width:100%;border-radius:18px;box-shadow:0 4px 24px #0005;">
+        </div>
+      </div>
+    </div>
+  </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services | Emmanuel Globalix Tech Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #111827 60%, #050505 100%);
+      color: #fff;
+      min-height: 100vh;
+    }
+    .site-header {
+      width: 100%;
+      background: rgba(0,0,0,0.55);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+    }
+    .site-header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+    }
+    .site-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #facc15;
+      letter-spacing: 1px;
+    }
+    .site-logo span {
+      color: #fff;
+    }
+    .site-nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .site-nav a:hover {
+      color: #facc15;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 18px 30px 18px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #facc15;
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+    .hero p {
+      color: #a1a1aa;
+      font-size: 1.25rem;
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .cta-btn {
+      background: #facc15;
+      color: #18181b;
+      font-weight: 800;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 38px;
+      font-size: 1.15rem;
+      box-shadow: 0 10px 40px rgba(250,204,21,0.18);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hero .cta-btn:hover {
+      background: #fde047;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 0 24px 60px 24px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+      padding: 38px 32px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+    }
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+    .service-card:nth-child(4) { animation-delay: 0.4s; }
+    .service-card:nth-child(5) { animation-delay: 0.5s; }
+    .service-card:nth-child(6) { animation-delay: 0.6s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      font-size: 2rem;
+      color: #18181b;
+      box-shadow: 0 4px 18px #facc1533;
+    }
+    .service-card h3 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #facc15;
+    }
+    .service-card p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    .cta-section {
+      text-align: center;
+      padding: 40px 0 60px 0;
+    }
+    .cta-section .cta-btn {
+      background: #facc15;
+      color: #18181b;
+      font-weight: 800;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 38px;
+      font-size: 1.15rem;
+      box-shadow: 0 10px 40px rgba(250,204,21,0.18);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .cta-section .cta-btn:hover {
+      background: #fde047;
+      transform: translateY(-2px) scale(1.03);
+    }
+    @media (max-width: 600px) {
+      .site-header-inner { flex-direction: column; gap: 10px; }
+      .hero h1 { font-size: 2rem; }
+      .services-grid { gap: 18px; padding: 0 6px 40px 6px; }
+      .service-card { padding: 24px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <div class="site-logo">Emmanuel <span>Globalix</span></div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html" style="color:#facc15;">Services</a>
+        <a href="book-consultation.html">Book Consultation</a>
+        <a href="employee-login.html">Employee</a>
+      </nav>
+    </div>
+  </div>
+  <div class="hero">
+    <h1>Our Services</h1>
+    <p>Explore the premium digital solutions we offer to help your business grow and succeed. From web and mobile development to branding, cloud, and cybersecurity, we deliver results that move your business forward.</p>
+    <button class="cta-btn" onclick="window.location.href='book-consultation.html'">Book a Consultation</button>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3>Website Development</h3>
+      <p>Modern, responsive websites tailored for your brand and business goals. Fast, secure, and scalable web solutions.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3>Mobile App Development</h3>
+      <p>Custom mobile applications for Android and iOS, delivering seamless user experiences and robust functionality.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💡</div>
+      <h3>IT Consulting</h3>
+      <p>Expert advice and strategy for digital transformation, technology adoption, and business process optimization.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>Branding & Design</h3>
+      <p>Professional branding, logo design, and visual identity to make your business stand out in the digital world.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">☁️</div>
+      <h3>Cloud Solutions</h3>
+      <p>Cloud migration, hosting, and scalable infrastructure to power your business with reliability and flexibility.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔒</div>
+      <h3>Cybersecurity</h3>
+      <p>Protect your data and digital assets with advanced security solutions and best practices for peace of mind.</p>
+    </div>
+  </div>
+  <div class="cta-section">
+    <h2 style="font-size:2rem;font-weight:900;color:#facc15;margin-bottom:18px;">Ready to Transform Your Business?</h2>
+    <p style="color:#a1a1aa;font-size:1.1rem;margin-bottom:28px;">Contact us today to discuss your project and discover how we can help you achieve your goals.</p>
+    <button class="cta-btn" onclick="window.location.href='book-consultation.html'">Get Started</button>
+  </div>
+</body>
+</html>

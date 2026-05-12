@@ -9,10 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
@@ -24,24 +21,64 @@
       color: #fff;
       padding: 20px;
     }
-
-    .container {
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
       width: 100%;
-      max-width: 460px;
+      max-width: 950px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px;
-      backdrop-filter: blur(20px);
+      border-radius: 32px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      padding: 42px 34px;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
       animation: fadeIn 0.6s ease;
     }
-
+    .left-pane {
+      background: linear-gradient(135deg,rgba(250,204,21,0.08),rgba(59,130,246,0.08));
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100%;
+    }
+    .left-pane h2 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #facc15;
+      margin-bottom: 18px;
+    }
+    .left-pane p {
+      color: #a1a1aa;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    .left-pane img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px #0007;
+    }
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     h1 {
       font-size: 1.9rem;
       font-weight: 800;
@@ -49,7 +86,6 @@
       margin-bottom: 6px;
       color: #facc15;
     }
-
     p {
       text-align: center;
       color: #9ca3af;
@@ -57,25 +93,21 @@
       margin-bottom: 28px;
       line-height: 1.5;
     }
-
     form {
       display: flex;
       flex-direction: column;
       gap: 18px;
     }
-
     .field {
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-
     label {
       font-size: 0.85rem;
       font-weight: 600;
       color: #eab308;
     }
-
     input, textarea {
       width: 100%;
       padding: 14px 16px;
@@ -87,18 +119,15 @@
       transition: all 0.2s ease;
       outline: none;
     }
-
     input:focus, textarea:focus {
       border-color: #facc15;
       box-shadow: 0 0 0 3px rgba(250,204,21,0.15);
       background: rgba(255,255,255,0.06);
     }
-
     textarea {
       resize: none;
       min-height: 110px;
     }
-
     button {
       margin-top: 6px;
       padding: 15px;
@@ -112,64 +141,63 @@
       transition: all 0.25s ease;
       box-shadow: 0 10px 25px rgba(250,204,21,0.2);
     }
-
     button:hover {
       transform: translateY(-2px);
       box-shadow: 0 14px 30px rgba(250,204,21,0.28);
     }
-
     #formMsg {
       text-align: center;
       margin-top: 14px;
       font-size: 0.95rem;
       font-weight: 600;
     }
-
-    .success {
-      color: #22c55e;
+    .success { color: #22c55e; }
+    .error { color: #ef4444; }
+    @media (max-width: 900px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .left-pane, .container { padding: 40px 18px; }
+      .left-pane { align-items: center; text-align: center; }
     }
-
-    .error {
-      color: #ef4444;
-    }
-
     @media (max-width: 480px) {
-      .container {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
+      .main-grid { border-radius: 18px; }
+      .container { padding: 30px 10px; }
+      h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Book a Consultation</h1>
-    <p>Tell us about your project. Our team will reach out within 24–48 hours to schedule your session.</p>
-
-    <form action="https://formspree.io/f/xrejjgqz" method="POST" id="consultForm" autocomplete="off">
-      <div class="field">
-        <label>Full Name</label>
-        <input type="text" name="name" placeholder="John Doe" required>
-      </div>
-      <div class="field">
-        <label>Email Address</label>
-        <input type="email" name="email" placeholder="you@email.com" required>
-      </div>
-      <div class="field">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="+1 234 567 8901" required>
-      </div>
-      <div class="field">
-        <label>Project Details</label>
-        <textarea name="message" placeholder="Describe your project..." required></textarea>
-      </div>
-      <button type="submit">Submit Request</button>
-      <div id="formMsg"></div>
-    </form>
+  <div class="main-grid">
+    <div class="left-pane">
+      <img src="https://img.icons8.com/color/96/consultation.png" alt="Consultation Icon">
+      <h2>Let's Build Your Vision</h2>
+      <p>Partner with <span style="color:#facc15;font-weight:700;">Emmanuel Globalix Tech Solutions</span> for expert digital consulting, business transformation, and premium technology solutions. We help you turn ideas into reality with modern design, scalable systems, and reliable support.</p>
+      <div style="margin-top:auto;color:#9ca3af;font-size:0.98rem;">Canadian-Based • Trusted by Businesses</div>
+    </div>
+    <div class="container">
+      <h1>Book a Consultation</h1>
+      <p>Tell us about your project. Our team will reach out by email within 24–48 hours to schedule your session.</p>
+      <form action="https://formspree.io/f/xrejjgqz" method="POST" id="consultForm" autocomplete="off">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="John Doe" required>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="you@email.com" required>
+        </div>
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="+1 234 567 8901" required>
+        </div>
+        <div class="field">
+          <label>Project Details</label>
+          <textarea name="message" placeholder="Describe your project..." required></textarea>
+        </div>
+        <button type="submit">Submit Request</button>
+        <div id="formMsg"></div>
+      </form>
+    </div>
   </div>
 
   <script>
