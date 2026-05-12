@@ -656,7 +656,7 @@
 
 
 
-      <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;" onclick="window.location.href='employee-login.html'">Token</button>
+      <button id="signinBtn" class="btn btn-primary" style="position:absolute;top:20px;right:20px;z-index:10;padding:10px 22px;font-size:16px;" onclick="window.location.href='auth.html'">Token</button>
 
 </header>
 
@@ -698,23 +698,7 @@
       if(e.key === 'Enter') document.getElementById('indexPassBtn').click();
     });
   }
-  function updateIndexSigninBtn() {
-    const btn = document.getElementById('signinBtn');
-    if (!btn) return;
-    if(sessionStorage.getItem(INDEX_ACCESS_KEY) === '1') {
-      btn.textContent = 'Sign Out';
-      btn.onclick = function() {
-        sessionStorage.removeItem(INDEX_ACCESS_KEY);
-        location.reload();
-      };
-    } else {
-      btn.textContent = 'Token';
-      btn.onclick = function() {
-        showIndexPasswordPrompt();
-      };
-    }
-  }
-  updateIndexSigninBtn();
+  // Remove sign in/out logic and always show Token button that goes to auth.html
 </script>
 
     </div>
