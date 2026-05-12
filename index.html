@@ -623,7 +623,19 @@
   </style>
 </head>
 
-<body>
+
+<body style="overflow:hidden;">
+  <!-- SPLASH SCREEN -->
+  <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canada Flag" style="width:80px;height:56px;margin-bottom:28px;box-shadow:0 4px 24px #0007;border-radius:12px;">
+    <h1 style="color:#facc15;font-size:2.5rem;font-weight:900;letter-spacing:2px;text-align:center;">Emmanuel Globalix Tech Solutions</h1>
+    <div style="margin-top:30px;">
+      <span class="loader" style="display:inline-block;width:48px;height:48px;border:5px solid #facc15;border-top:5px solid #222;border-radius:50%;animation:spin 1s linear infinite;"></span>
+    </div>
+  </div>
+  <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
 
   <!-- BACKGROUND -->
   <div class="bg">
@@ -1185,10 +1197,17 @@
 
   <!-- JAVASCRIPT -->
 
+
   <script>
+    // Splash screen logic
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('splash').style.display = 'none';
+        document.body.style.overflow = '';
+      }, 3000);
+    });
 
-
-
+    // Fade-in animation logic
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach((entry)=>{
         if(entry.isIntersecting){
@@ -1198,11 +1217,9 @@
     },{
       threshold:0.2
     });
-
     document.querySelectorAll('.fade').forEach((el)=>{
       observer.observe(el);
     });
-
   </script>
 
 </body>
