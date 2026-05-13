@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Emmanuel Globalix Tech Solutions </title>
+  <!-- Favicon for link previews and APK -->
+  <link rel="icon" type="image/png" href="/logo.png" sizes="192x192" />
+  <meta property="og:image" content="/logo.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Globalix">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -348,15 +356,10 @@
 
     /* WHY */
 
-    .border-top{
-      border-top:1px solid rgba(255,255,255,0.06);
-    }
+
 
     .why-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:70px;
-      align-items:center;
+      display:block;
     }
 
     .section-title-left{
@@ -625,16 +628,18 @@
 
 
 <body style="overflow:hidden;">
-  <!-- SPLASH SCREEN -->
+
+  <!-- SPLASH SCREEN: Only logo, animated bip -->
   <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="Canada Flag" style="width:80px;height:56px;margin-bottom:28px;box-shadow:0 4px 24px #0007;border-radius:12px;">
-    <h1 style="color:#facc15;font-size:2.5rem;font-weight:900;letter-spacing:2px;text-align:center;">Emmanuel Globalix Tech Solutions</h1>
-    <div style="margin-top:30px;">
-      <span class="loader" style="display:inline-block;width:48px;height:48px;border:5px solid #facc15;border-top:5px solid #222;border-radius:50%;animation:spin 1s linear infinite;"></span>
-    </div>
+    <img src="/logo.png" alt="Globalix Logo" id="splashLogo" style="width:98vw;height:98vw;max-width:98vh;max-height:98vh;filter:drop-shadow(0 4px 24px #0007);border-radius:56px;object-fit:contain;opacity:0;transform:scale(0.7);transition:all 0.5s cubic-bezier(.7,1.7,.5,1.1);">
   </div>
   <style>
-    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @keyframes bip {
+      0% { opacity: 0; transform: scale(0.7); }
+      30% { opacity: 1; transform: scale(1.15); }
+      60% { opacity: 1; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
   </style>
 
   <!-- BACKGROUND -->
@@ -655,13 +660,7 @@
         <p>TECH SOLUTIONS</p>
       </div>
 
-      <nav style="position: relative;">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-        <!-- Employees dropdown removed as requested -->
-      </nav>
+      <nav style="position: relative;"></nav>
       <!-- Employees dropdown script removed as requested -->
       </script>
 
@@ -728,14 +727,13 @@
           Canadian-Based Digital Solutions Company
         </div>
 
+
         <h2>
-          Innovative Digital Solutions for
-          <span class="gold">Modern Businesses</span>
+          <span class="gold">Build your </span><span style="color:#2563eb;font-weight:700;">websites with us.</span>
         </h2>
 
         <p>
-          We help businesses grow through premium website development,
-          mobile apps, branding, IT consulting, and scalable digital transformation solutions.
+          We help businesses grow through premium website development, mobile apps, and effective digital ads.
         </p>
 
         <div class="hero-buttons">
@@ -801,7 +799,7 @@
         </div>
 
         <p>
-          Emmanuel Globalix Tech Solutions is a Canadian-based digital solutions company specializing in professional website development, mobile app development, IT consulting, branding, and business technology solutions.
+          Emmanuel Globalix Tech Solutions builds websites, mobile apps, and digital ads to help your business succeed online.
         </p>
 
       </div>
@@ -823,30 +821,30 @@
         </h3>
 
         <p>
-          Premium digital solutions tailored for modern businesses.
+          We create websites, apps, and digital ads for your business.
         </p>
 
       </div>
 
       <div class="services">
 
-        <div class="glass card fade">
+        <a href="dashboard-website.html" class="glass card fade" style="text-decoration:none;color:inherit;">
           <div class="icon"></div>
           <h4>Website Development</h4>
-          <p>Modern responsive websites designed for business growth.</p>
-        </div>
+          <p>Modern, responsive websites for any business.</p>
+        </a>
 
-        <div class="glass card fade">
+        <a href="dashboard-app.html" class="glass card fade" style="text-decoration:none;color:inherit;">
           <div class="icon"></div>
           <h4>Mobile App Development</h4>
-          <p>Premium mobile experiences for Android and iOS.</p>
-        </div>
+          <p>Custom mobile apps for Android and iOS.</p>
+        </a>
 
-        <div class="glass card fade">
+        <a href="dashboard-ads.html" class="glass card fade" style="text-decoration:none;color:inherit;">
           <div class="icon"></div>
-          <h4>IT Consulting</h4>
-          <p>Business transformation and enterprise technology strategy.</p>
-        </div>
+          <h4>Digital Ads</h4>
+          <p>Effective online advertising to reach your audience.</p>
+        </a>
 
       </div>
 
@@ -856,67 +854,28 @@
 
   <!-- WHY CHOOSE US -->
 
-  <section class="section border-top">
+  <section class="section">
 
     <div class="container why-grid">
 
-      <div class="fade">
 
-        <h3 class="section-title-left">
-          Why Choose <span class="gold">Us</span>
-        </h3>
-
-        <div class="features">
-
-          <div class="feature glass">
+      <div class="fade" style="text-align:center;max-width:600px;margin:0 auto;">
+        <h3 style="font-size:2.2rem;font-weight:900;margin-bottom:18px;">Why Choose <span class="gold">Us</span></h3>
+        <p style="font-size:1.15rem;color:#a1a1aa;margin-bottom:32px;">We deliver modern websites, custom apps, and digital ads that help your business grow fast.</p>
+        <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;">
+          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
             <div class="dot"></div>
-            <span>Professional Team</span>
+            <span style="font-weight:700;">Fast Delivery</span>
           </div>
-
-          <div class="feature glass">
+          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
             <div class="dot"></div>
-            <span>Fast Delivery</span>
+            <span style="font-weight:700;">Modern Design</span>
           </div>
-
-          <div class="feature glass">
+          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
             <div class="dot"></div>
-            <span>Modern Technology</span>
+            <span style="font-weight:700;">Reliable Support</span>
           </div>
-
-          <div class="feature glass">
-            <div class="dot"></div>
-            <span>Reliable Support</span>
-          </div>
-
-          <div class="feature glass">
-            <div class="dot"></div>
-            <span>Scalable Solutions</span>
-          </div>
-
-          <div class="feature glass">
-            <div class="dot"></div>
-            <span>Premium UI/UX</span>
-          </div>
-
         </div>
-
-      </div>
-
-      <div class="glass future-box fade">
-
-        <h4>
-          Building Future-Ready Businesses
-        </h4>
-
-        <p>
-          Our mission is to provide modern technology solutions that help
-          businesses scale faster and build a strong online presence.
-        </p>
-
-        <button class="btn btn-primary">
-          Start Your Project
-        </button>
-
       </div>
 
     </div>
@@ -936,7 +895,7 @@
         </h3>
 
         <p>
-          Modern digital experiences built for ambitious brands.
+          See our work: websites, apps, and digital ads for real clients.
         </p>
 
       </div>
@@ -949,10 +908,10 @@
 
           <div class="portfolio-content">
 
-            <h4>Premium Business Platform</h4>
+            <h4>Business Website</h4>
 
             <p>
-              Responsive digital platform with scalable technology infrastructure.
+              A modern, responsive website for a growing business.
             </p>
 
           </div>
@@ -965,10 +924,10 @@
 
           <div class="portfolio-content">
 
-            <h4>Enterprise Web Solution</h4>
+            <h4>Mobile App Project</h4>
 
             <p>
-              Enterprise-level systems with optimized performance and branding.
+              A custom mobile app for iOS and Android.
             </p>
 
           </div>
@@ -981,10 +940,10 @@
 
           <div class="portfolio-content">
 
-            <h4>Digital Growth Platform</h4>
+            <h4>Digital Ads Campaign</h4>
 
             <p>
-              Modern scalable digital experiences for businesses and startups.
+              Online advertising that delivers real results.
             </p>
 
           </div>
@@ -1020,7 +979,7 @@
           </div>
 
           <p>
-            Emmanuel Globalix Tech Solutions delivered an outstanding digital experience.
+            Emmanuel Globalix Tech Solutions built us a great website and app.
           </p>
 
           <div class="testimonial-user">
@@ -1037,7 +996,7 @@
           </div>
 
           <p>
-            Highly professional team with premium UI and modern solutions.
+            The team helped us reach more customers with digital ads.
           </p>
 
           <div class="testimonial-user">
@@ -1200,7 +1159,14 @@
 
   <script>
     // Splash screen logic
+
     window.addEventListener('DOMContentLoaded', function() {
+      var logo = document.getElementById('splashLogo');
+      setTimeout(function() {
+        logo.style.opacity = 1;
+        logo.style.transform = 'scale(1)';
+        logo.style.animation = 'bip 1.2s cubic-bezier(.7,1.7,.5,1.1)';
+      }, 100);
       setTimeout(function() {
         document.getElementById('splash').style.display = 'none';
         document.body.style.overflow = '';

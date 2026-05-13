@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Development Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:#050505;color:white;overflow-x:hidden;}
+    .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;}
+    .glow{position:absolute;border-radius:999px;filter:blur(120px);}
+    .g1{width:500px;height:500px;background:rgba(255,204,0,0.14);top:-150px;left:-150px;}
+    .g2{width:500px;height:500px;background:rgba(0,119,255,0.14);bottom:-150px;right:-150px;}
+    .layout{display:flex;min-height:100vh;}
+    .sidebar{width:290px;background:rgba(255,255,255,0.04);border-right:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px);padding:30px;position:fixed;height:100vh;}
+    .logo h1{color:#facc15;font-size:32px;font-weight:900;margin-bottom:8px;}
+    .logo span{color:white;}
+    .logo p{color:#888;letter-spacing:4px;font-size:11px;margin-bottom:50px;}
+    .menu{display:flex;flex-direction:column;gap:18px;}
+    .menu a{text-decoration:none;color:#d4d4d8;padding:18px 20px;border-radius:18px;transition:0.3s;background:rgba(255,255,255,0.03);border:1px solid transparent;font-weight:500;}
+    .menu a:hover,.menu .active{background:rgba(250,204,21,0.12);border-color:rgba(250,204,21,0.2);color:#facc15;transform:translateX(4px);}
+    .main{margin-left:290px;width:100%;padding:40px;}
+    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;gap:20px;flex-wrap:wrap;}
+    .welcome h2{font-size:48px;font-weight:900;margin-bottom:10px;}
+    .welcome p{color:#a1a1aa;font-size:17px;}
+    .profile{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:14px 20px;border-radius:22px;backdrop-filter:blur(20px);}
+    .avatar{width:55px;height:55px;border-radius:50%;background:linear-gradient(to bottom right,#facc15,#f59e0b);}
+    .profile h4{margin-bottom:5px;}
+    .profile span{color:#aaa;font-size:14px;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;margin-bottom:35px;}
+    .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:30px;padding:30px;backdrop-filter:blur(24px);transition:0.35s;}
+    .card:hover{transform:translateY(-6px);border-color:rgba(250,204,21,0.25);}
+    .stat-title{color:#aaa;margin-bottom:18px;font-size:15px;}
+    .stat-number{font-size:48px;font-weight:900;color:#facc15;}
+    .content-grid{display:grid;grid-template-columns:2fr 1fr;gap:25px;}
+    .section-title{font-size:28px;margin-bottom:25px;}
+    .task{display:flex;justify-content:space-between;align-items:center;padding:18px;border-radius:18px;background:rgba(255,255,255,0.03);margin-bottom:16px;border:1px solid rgba(255,255,255,0.05);}
+    .task h4{margin-bottom:5px;}
+    .task p{color:#999;font-size:14px;}
+    .badge{background:rgba(250,204,21,0.15);color:#facc15;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;}
+    .activity-item{padding:18px;border-radius:18px;background:rgba(255,255,255,0.03);margin-bottom:15px;border:1px solid rgba(255,255,255,0.05);}
+    .activity-item h4{margin-bottom:8px;}
+    .activity-item p{color:#999;font-size:14px;line-height:1.7;}
+    .quick-actions{margin-top:25px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+    .action-btn{background:linear-gradient(to bottom right,#facc15,#f59e0b);border:none;padding:18px;border-radius:22px;font-weight:800;cursor:pointer;transition:0.3s;}
+    .action-btn:hover{transform:scale(1.03);}
+    @media(max-width:1100px){.content-grid{grid-template-columns:1fr;}}
+    @media(max-width:900px){.sidebar{position:relative;width:100%;height:auto;}.main{margin-left:0;}.layout{flex-direction:column;}}
+    @media(max-width:600px){.main{padding:25px;}.welcome h2{font-size:36px;}.sidebar{padding:25px;}}
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+  </div>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h1>Globalix <span>Hub</span></h1>
+        <p>WEBSITE PORTAL</p>
+      </div>
+      <div class="menu">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Projects</a>
+        <a href="#">Analytics</a>
+        <a href="dashboard-website.html" class="active">Website Dev</a>
+        <a href="dashboard-app.html">App Dev</a>
+        <a href="dashboard-ads.html">Digital Ads</a>
+        <a href="index.html">Main Site</a>
+      </div>
+    </aside>
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <div class="topbar">
+        <div class="welcome">
+          <h2>Website Dev Dashboard</h2>
+          <p>Welcome back, Web Developer!</p>
+        </div>
+        <div class="profile">
+          <div class="avatar"></div>
+          <div>
+            <h4>Alex Johnson</h4>
+            <span>Web Developer</span>
+          </div>
+        </div>
+      </div>
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="card">
+          <div class="stat-title">Active Sites</div>
+          <div class="stat-number">4</div>
+        </div>
+        <div class="card">
+          <div class="stat-title">Pending Tasks</div>
+          <div class="stat-number">5</div>
+        </div>
+        <div class="card">
+          <div class="stat-title">Deployments</div>
+          <div class="stat-number">12</div>
+        </div>
+        <div class="card">
+          <div class="stat-title">Integrations</div>
+          <div class="stat-number">3</div>
+        </div>
+      </div>
+      <!-- CONTENT -->
+      <div class="content-grid">
+        <!-- TASKS / PROJECTS -->
+        <div class="card">
+          <h3 class="section-title">Current Projects</h3>
+          <div class="task">
+            <div>
+              <h4>Business Landing Page</h4>
+              <p>Client: NovaTech</p>
+            </div>
+            <div class="badge">In Progress</div>
+          </div>
+          <div class="task">
+            <div>
+              <h4>E-commerce Store</h4>
+              <p>Client: Urban Market</p>
+            </div>
+            <div class="badge">Review</div>
+          </div>
+          <div class="task">
+            <div>
+              <h4>Portfolio Website</h4>
+              <p>Client: Internal</p>
+            </div>
+            <div class="badge">Pending</div>
+          </div>
+          <div class="quick-actions">
+            <button class="action-btn" onclick="location.href='unavailable.html'">Add Project</button>
+            <button class="action-btn" onclick="location.href='unavailable.html'">Deploy Site</button>
+            <button class="action-btn" onclick="location.href='unavailable.html'">View Analytics</button>
+          </div>
+        </div>
+        <!-- ACTIVITY / TOOLS -->
+        <div class="card">
+          <h3 class="section-title">Recent Activity</h3>
+          <div class="activity-item">
+            <h4>Site Deployed</h4>
+            <p>Business Landing Page deployed to production.</p>
+          </div>
+          <div class="activity-item">
+            <h4>Integration Added</h4>
+            <p>Payment gateway integrated for E-commerce Store.</p>
+          </div>
+          <div class="activity-item">
+            <h4>Project Completed</h4>
+            <p>Portfolio Website launched successfully.</p>
+          </div>
+          <div class="activity-item">
+            <h4>Analytics Updated</h4>
+            <p>Traffic analytics refreshed for all sites.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
