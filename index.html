@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Emmanuel Globalix Tech Solutions </title>
-  <!-- Favicon for link previews and APK -->
-  <link rel="icon" type="image/png" href="/logo.png" sizes="192x192" />
-  <meta property="og:image" content="/logo.png" />
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <!-- ...existing code... -->
+      </div>
+      <nav style="position: relative;"></nav>
+      <!-- Mobile Top Right Logo -->
+      <img src="/logo.png" alt="Globalix Logo" class="mobile-top-logo">
+    </div>
+  </header>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Globalix">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -631,7 +633,7 @@
 
   <!-- SPLASH SCREEN: Only logo, animated bip -->
   <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-    <img src="/logo.png" alt="Globalix Logo" id="splashLogo" style="width:98vw;height:98vw;max-width:98vh;max-height:98vh;filter:drop-shadow(0 4px 24px #0007);border-radius:56px;object-fit:contain;opacity:0;transform:scale(0.7);transition:all 0.5s cubic-bezier(.7,1.7,.5,1.1);">
+    <img src="/logo.png" alt="Globalix Logo" id="splashLogo" style="width:48vw;height:48vw;max-width:180px;max-height:180px;filter:drop-shadow(0 4px 24px #0007);border-radius:32px;object-fit:contain;opacity:0;transform:scale(0.7);transition:all 0.5s cubic-bezier(.7,1.7,.5,1.1);">
   </div>
   <style>
     @keyframes bip {
@@ -1150,6 +1152,30 @@
       @media (max-width: 700px) {
         #signinBtn {
           display: none !important;
+        }
+      }
+    </style>
+    <style>
+      @media (max-width: 700px) {
+        .mobile-top-logo {
+          display: block;
+          position: absolute;
+          top: 18px;
+          right: 18px;
+          width: 54px;
+          height: 54px;
+          border-radius: 16px;
+          background: #fff;
+          box-shadow: 0 2px 12px #0003;
+          z-index: 1001;
+        }
+        .container.nav {
+          position: relative;
+        }
+      }
+      @media (min-width: 701px) {
+        .mobile-top-logo {
+          display: none;
         }
       }
     </style>
