@@ -1,19 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <!-- ...existing code... -->
-      </div>
-      <nav style="position: relative;"></nav>
-      <!-- Mobile Top Right Logo -->
-      <img src="/logo.png" alt="Globalix Logo" class="mobile-top-logo">
-    </div>
-  </header>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Globalix">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="apple-touch-icon" href="/logo.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emmanuel Globalix Tech Solutions </title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -92,28 +82,9 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:20px 0 !important;
+      padding:0 !important;
       margin-top:0 !important;
       min-height:72px !important;
-    }
-    @media (max-width: 700px) {
-      .nav {
-        padding:12px 0 12px 0 !important;
-        min-height:56px !important;
-      }
-    }
-    body {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-    html {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-    @media (max-width: 700px) {
-      .nav {
-        padding:4px 0 4px 0 !important;
-      }
     }
 
     .logo h1{
@@ -382,10 +353,15 @@
 
     /* WHY */
 
-
+    .border-top{
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
 
     .why-grid{
-      display:block;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
     }
 
     .section-title-left{
@@ -654,17 +630,20 @@
 
 
 <body style="overflow:hidden;">
-
-  <!-- SPLASH SCREEN: Only logo, animated bip -->
+  <!-- SPLASH SCREEN -->
   <div id="splash" style="position:fixed;inset:0;z-index:99999;background:#050505;display:flex;flex-direction:column;justify-content:center;align-items:center;">
-    <img src="/logo.png" alt="Globalix Logo" id="splashLogo" style="width:48vw;height:48vw;max-width:180px;max-height:180px;filter:drop-shadow(0 4px 24px #0007);border-radius:32px;object-fit:contain;opacity:0;transform:scale(0.7);transition:all 0.5s cubic-bezier(.7,1.7,.5,1.1);">
+    <img id="splashLogo" src="logo.png" alt="Globalix Logo" style="width:320px;height:320px;max-width:90vw;max-height:90vw;filter:drop-shadow(0 4px 24px #0007);border-radius:48px;object-fit:contain;">
+    <div style="margin-top:30px;">
+      <span class="loader" style="display:inline-block;width:48px;height:48px;border:5px solid #facc15;border-top:5px solid #222;border-radius:50%;animation:spin 1s linear infinite;"></span>
+    </div>
   </div>
   <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
     @keyframes bip {
-      0% { opacity: 0; transform: scale(0.7); }
-      30% { opacity: 1; transform: scale(1.15); }
-      60% { opacity: 1; transform: scale(0.95); }
-      100% { opacity: 1; transform: scale(1); }
+      0% { transform: scale(1); }
+      30% { transform: scale(1.18); }
+      60% { transform: scale(0.92); }
+      100% { transform: scale(1); }
     }
   </style>
 
@@ -682,11 +661,17 @@
     <div class="container nav">
 
       <div class="logo">
-        <h1>Emmanuel <span>Globalix</span></h1>
-        <p>TECH SOLUTIONS</p>
+        <img src="logo.png" alt="Globalix Logo" style="height:120px;width:120px;margin-right:28px;margin-left:-110px;vertical-align:middle;display:inline-block;border-radius:24px;box-shadow:0 2px 24px #0004;object-fit:contain;" />
+        <span style="display:inline-block;vertical-align:middle;">
+          <h1 style="display:inline;font-size:28px;font-weight:800;color:#facc15;letter-spacing:2px;">Emmanuel <span style="color:white;">Globalix</span></h1>
+          <p style="font-size:11px;letter-spacing:5px;color:#888;margin-top:4px;">TECH SOLUTIONS</p>
+        </span>
       </div>
 
-      <nav style="position: relative;"></nav>
+      <nav style="position: relative;">
+        <!-- Navigation links removed as requested -->
+        <!-- Employees dropdown removed as requested -->
+      </nav>
       <!-- Employees dropdown script removed as requested -->
       </script>
 
@@ -753,13 +738,13 @@
           Canadian-Based Digital Solutions Company
         </div>
 
-
         <h2>
-          <span class="gold">Build your </span><span style="color:#2563eb;font-weight:700;">websites with us.</span>
+          <span style="color:#facc15;">Build you</span> <span style="color:#3b82f6;">website with us</span>
         </h2>
 
         <p>
-          We help businesses grow through premium website development, mobile apps, and effective digital ads.
+
+          We help businesses grow through premium website development, mobile apps, and digital ads.
         </p>
 
         <div class="hero-buttons">
@@ -792,12 +777,11 @@
         <div class="info-box">
 
           <h4>
-            Premium Technology Solutions
+            Website, App & Ads Solutions
           </h4>
 
           <p>
-            Modern websites, business systems, scalable applications,
-            and enterprise-grade digital experiences.
+            Modern websites, mobile apps, and digital advertising for business growth.
           </p>
 
         </div>
@@ -825,7 +809,7 @@
         </div>
 
         <p>
-          Emmanuel Globalix Tech Solutions builds websites, mobile apps, and digital ads to help your business succeed online.
+          Emmanuel Globalix Tech Solutions is a Canadian-based company specializing in website development, mobile app development, and digital advertising.
         </p>
 
       </div>
@@ -847,30 +831,36 @@
         </h3>
 
         <p>
-          We create websites, apps, and digital ads for your business.
+          Premium website, app, and ad solutions tailored for modern businesses.
         </p>
 
       </div>
 
       <div class="services">
 
-        <a href="book-consultation.html" class="glass card fade" style="text-decoration:none;color:inherit;">
-          <div class="icon"></div>
+        <div class="glass card fade">
+          <div class="icon">🌐</div>
           <h4>Website Development</h4>
-          <p>Modern, responsive websites for any business.</p>
-        </a>
+          <p>Modern, responsive websites tailored for your brand and business goals. Fast, secure, and scalable web solutions.</p>
+        </div>
 
-        <a href="book-consultation.html" class="glass card fade" style="text-decoration:none;color:inherit;">
-          <div class="icon"></div>
+        <div class="glass card fade">
+          <div class="icon">📱</div>
           <h4>Mobile App Development</h4>
-          <p>Custom mobile apps for Android and iOS.</p>
-        </a>
+          <p>Custom mobile applications for Android and iOS, delivering seamless user experiences and robust functionality.</p>
+        </div>
 
-        <a href="book-consultation.html" class="glass card fade" style="text-decoration:none;color:inherit;">
-          <div class="icon"></div>
+        <div class="glass card fade">
+          <div class="icon">📢</div>
           <h4>Digital Ads</h4>
-          <p>Effective online advertising to reach your audience.</p>
-        </a>
+          <p>Online advertising that delivers real results and helps you reach more customers.</p>
+        </div>
+
+        <div class="glass card fade">
+          <div class="icon">🤖</div>
+          <h4>AI Solutions for Small Businesses</h4>
+          <p>Custom AI-powered analytics and automation to help small businesses make smarter decisions, automate tasks, and improve customer engagement.</p>
+        </div>
 
       </div>
 
@@ -880,28 +870,76 @@
 
   <!-- WHY CHOOSE US -->
 
-  <section class="section">
+  <section class="section border-top">
 
     <div class="container why-grid">
 
+      <div class="fade">
 
-      <div class="fade" style="text-align:center;max-width:600px;margin:0 auto;">
-        <h3 style="font-size:2.2rem;font-weight:900;margin-bottom:18px;">Why Choose <span class="gold">Us</span></h3>
-        <p style="font-size:1.15rem;color:#a1a1aa;margin-bottom:32px;">We deliver modern websites, custom apps, and digital ads that help your business grow fast.</p>
-        <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap;">
-          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
+        <h3 class="section-title-left">
+          Why Choose <span class="gold">Us</span>
+        </h3>
+
+        <div class="features">
+
+          <div class="feature glass">
             <div class="dot"></div>
-            <span style="font-weight:700;">Fast Delivery</span>
+            <span>Professional Team</span>
           </div>
-          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
+
+          <div class="feature glass">
             <div class="dot"></div>
-            <span style="font-weight:700;">Modern Design</span>
+            <span>Fast Delivery</span>
           </div>
-          <div class="feature glass" style="min-width:140px;padding:22px 18px;">
+
+          <div class="feature glass">
             <div class="dot"></div>
-            <span style="font-weight:700;">Reliable Support</span>
+            <span>Modern Technology</span>
           </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Reliable Support</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Scalable Solutions</span>
+          </div>
+
+          <div class="feature glass">
+            <div class="dot"></div>
+            <span>Premium UI/UX</span>
+          </div>
+
         </div>
+
+      </div>
+
+      <div class="glass future-box fade">
+
+        <h4>
+          Building Future-Ready Businesses
+        </h4>
+
+        <p>
+          Our mission is to help businesses grow with websites, apps, and digital ads that build a strong online presence.
+        </p>
+
+        <button class="btn btn-primary">
+          Start Your Project
+        </button>
+        <script>
+          // Make the button go to the consultation page
+          document.addEventListener('DOMContentLoaded', function() {
+            const btns = Array.from(document.querySelectorAll('.btn.btn-primary'));
+            const startBtn = btns.find(b => b.textContent.trim() === 'Start Your Project');
+            if (startBtn) {
+              startBtn.onclick = function() { window.location.href = 'book-consultation.html'; };
+            }
+          });
+        </script>
+
       </div>
 
     </div>
@@ -921,183 +959,81 @@
         </h3>
 
         <p>
-          See our work: websites, apps, and digital ads for real clients.
+          Modern digital experiences built for ambitious brands.
         </p>
 
       </div>
 
       <div class="portfolio-grid">
 
+
         <div class="portfolio-card glass fade">
-
           <div class="portfolio-image"></div>
-
           <div class="portfolio-content">
-
-            <h4>Business Website</h4>
-
-            <p>
-              A modern, responsive website for a growing business.
-            </p>
-
+            <h4>AI Solutions for Small Businesses</h4>
+            <p>Custom AI-powered analytics and automation platform tailored for small businesses. Automated customer insights, AI-driven marketing, 24/7 chatbot support, and seamless integration with your tools.</p>
           </div>
-
         </div>
 
         <div class="portfolio-card glass fade">
-
           <div class="portfolio-image"></div>
-
           <div class="portfolio-content">
-
-            <h4>Mobile App Project</h4>
-
-            <p>
-              A custom mobile app for iOS and Android.
-            </p>
-
+            <h4>Website & App Project</h4>
+            <p>Modern, responsive website and mobile app built for business growth and customer engagement.</p>
           </div>
-
         </div>
 
         <div class="portfolio-card glass fade">
-
           <div class="portfolio-image"></div>
-
           <div class="portfolio-content">
-
             <h4>Digital Ads Campaign</h4>
-
-            <p>
-              Online advertising that delivers real results.
-            </p>
-
+            <p>Online advertising that delivers real results and helps you reach more customers.</p>
           </div>
-
         </div>
 
       </div>
 
     </div>
 
-  </section>
 
   <!-- TESTIMONIALS -->
-
   <section class="border-top">
-
     <div class="container">
-
       <div class="section-header fade">
-
         <h3>
           Client <span class="gold">Testimonials</span>
         </h3>
-
       </div>
-
       <div class="testimonial-grid">
-
         <div class="testimonial-card glass fade">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            Emmanuel Globalix Tech Solutions built us a great website and app.
-          </p>
-
+          <div class="stars">★★★★★</div>
+          <p>Emmanuel Globalix Tech Solutions delivered an outstanding digital experience.</p>
           <div class="testimonial-user">
             <h4>Business Client</h4>
             <span>Toronto, Canada</span>
           </div>
-
         </div>
-
         <div class="testimonial-card glass fade">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            The team helped us reach more customers with digital ads.
-          </p>
-
+          <div class="stars">★★★★★</div>
+          <p>Highly professional team with premium UI and modern solutions.</p>
           <div class="testimonial-user">
             <h4>Startup Founder</h4>
             <span>Ontario, Canada</span>
           </div>
-
         </div>
-
         <div class="testimonial-card glass fade">
-
-          <div class="stars">
-            ★★★★★
-          </div>
-
-          <p>
-            Exceptional technology consulting and digital transformation support.
-          </p>
-
+          <div class="stars">★★★★★</div>
+          <p>Exceptional website, app, and digital ads support.</p>
           <div class="testimonial-user">
             <h4>Corporate Client</h4>
             <span>Vancouver, Canada</span>
           </div>
-
         </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EMPLOYEE DASHBOARD -->
-
-  <section id="employees" class="border-top">
-    <div class="container">
-      <div class="section-header fade">
-        <h3>
-          Employee <span class="gold">Portal</span>
-        </h3>
-        <p>
-          Secure access for Globalix team members.
-        </p>
-      </div>
-      <div class="glass contact-box fade">
-        <h3>
-          Employee Dashboard Access
-        </h3>
-        <p>
-          Employees can access company tools, projects,
-          schedules, internal updates, and client management systems.
-        </p>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h4>Project Management</h4>
-            <span>Track active company projects.</span>
-          </div>
-          <div class="contact-card">
-            <h4>Team Communication</h4>
-            <span>Access internal staff communication.</span>
-          </div>
-          <div class="contact-card">
-            <h4>Employee Resources</h4>
-            <span>View schedules, files, and updates.</span>
-          </div>
-        </div>
-        <a href="employee-login.html">
-          <button class="btn btn-primary">
-            Open Employee Dashboard
-          </button>
-        </a>
       </div>
     </div>
   </section>
+
+
 
   <!-- CONTACT -->
 
@@ -1137,6 +1073,16 @@
         <button class="btn btn-primary">
           Schedule Session
         </button>
+        <script>
+          // Link Schedule Session button to its page
+          document.addEventListener('DOMContentLoaded', function() {
+            const btns = Array.from(document.querySelectorAll('.btn.btn-primary'));
+            const scheduleBtn = btns.find(b => b.textContent.trim() === 'Schedule Session');
+            if (scheduleBtn) {
+              scheduleBtn.onclick = function() { window.location.href = 'schedule-session.html'; };
+            }
+          });
+        </script>
 
       </div>
 
@@ -1179,44 +1125,15 @@
         }
       }
     </style>
-    <style>
-      @media (max-width: 700px) {
-        .mobile-top-logo {
-          display: block;
-          position: absolute;
-          top: 18px;
-          right: 18px;
-          width: 54px;
-          height: 54px;
-          border-radius: 16px;
-          background: #fff;
-          box-shadow: 0 2px 12px #0003;
-          z-index: 1001;
-        }
-        .container.nav {
-          position: relative;
-        }
-      }
-      @media (min-width: 701px) {
-        .mobile-top-logo {
-          display: none;
-        }
-      }
-    </style>
 
   <!-- JAVASCRIPT -->
 
 
   <script>
     // Splash screen logic
-
     window.addEventListener('DOMContentLoaded', function() {
-      var logo = document.getElementById('splashLogo');
-      setTimeout(function() {
-        logo.style.opacity = 1;
-        logo.style.transform = 'scale(1)';
-        logo.style.animation = 'bip 1.2s cubic-bezier(.7,1.7,.5,1.1)';
-      }, 100);
+      const logo = document.getElementById('splashLogo');
+      logo.style.animation = 'bip 1.2s cubic-bezier(.7,1.7,.5,1.1)';
       setTimeout(function() {
         document.getElementById('splash').style.display = 'none';
         document.body.style.overflow = '';

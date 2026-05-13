@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Schedule a Session | Emmanuel Globalix Tech Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050505;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.04);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px #0006;
+      padding: 40px 30px 32px 30px;
+    }
+    h1 {
+      color: #facc15;
+      font-size: 2.2rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    p {
+      color: #a1a1aa;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    input, textarea, select {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      background: #18181b;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    button {
+      background: #facc15;
+      color: #18181b;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 0;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #ffe066;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Schedule a Session</h1>
+    <p>Book a meeting with our team to discuss your website, app, or digital ads project. We'll get back to you promptly!</p>
+    <form action="https://formspree.io/f/xayrjvbp" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number (optional)" />
+      <select name="service" required>
+        <option value="" disabled selected>Select Service</option>
+        <option value="Website Development">Website Development</option>
+        <option value="Mobile App Development">Mobile App Development</option>
+        <option value="Digital Ads">Digital Ads</option>
+        <option value="Consultation">Consultation</option>
+      </select>
+      <textarea name="details" rows="4" placeholder="Tell us about your project or preferred meeting time" required></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+  </div>
+</body>
+</html>
