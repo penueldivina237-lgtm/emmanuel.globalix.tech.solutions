@@ -83,13 +83,37 @@
       backdrop-filter:blur(20px);
       background:rgba(0,0,0,0.45);
       border-bottom:1px solid rgba(255,255,255,0.08);
+      margin-top:0 !important;
+      padding-top:0 !important;
+      box-shadow: none;
     }
 
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:20px 0;
+      padding:20px 0 !important;
+      margin-top:0 !important;
+      min-height:72px !important;
+    }
+    @media (max-width: 700px) {
+      .nav {
+        padding:12px 0 12px 0 !important;
+        min-height:56px !important;
+      }
+    }
+    body {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    html {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    @media (max-width: 700px) {
+      .nav {
+        padding:4px 0 4px 0 !important;
+      }
     }
 
     .logo h1{
